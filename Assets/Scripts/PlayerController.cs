@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-//youtube example code
+//soo's code
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,6 +24,199 @@ public class PlayerController : MonoBehaviour
     [Header("Speed")]
     [SerializeField]
     private float maxSpeed;
+    [SerializeField]
+    private float acceleration;
+    [SerializeField]
+    private float reverseSpeed;
+
+    [Header("Steering")]
+    [SerializeField]
+    private float steerStrength;
+
+    [Header("Gravity")]
+    [SerializeField]
+    private float gravity;
+
+    [Header("Tilting")]
+    [SerializeField]
+    private float zTiltAngle;
+    [SerializeField]
+    private float bikeTiltIncrement;
+    private float currentVelocityOffset;
+    private Vector3 currentVelocity;
+
+    [Header("Breaking")]
+    [Range(1, 10)]
+    public float breakingFactor;
+
+    [Header("Tests")]
+    [SerializeField]
+    private bool isGrounded;
+
+    private void Start()
+    {
+        sphereRB.transform.parent = null;
+        bikeBody.transform.parent = null;
+        //moveInput = Input.GetAxis("Horizontal");
+
+        rayLength = sphereRB.GetComponent<SphereCollider>().radius + .07f;
+    }
+
+    private void Update()
+    {
+        moveInput = Input.GetAxis("Vertical");
+        steerInput = Input.GetAxis("Horizontal");
+        transform.position = sphereRB.transform.position;
+
+        currentVelocity = bikeBody.transform.InverseTransformDirection(sphereRB.linearVelocity);
+
+        float speedReference = currentVelocity.z >= 0 ? maxSpeed : reverseSpeed;
+        currentVelocityOffset = Mathf.Clamp(currentVelocity.z / speedReference, -1f, 1f);
+
+    }
+
+    private void FixedUpdate()
+    {
+        //Acceleration();
+        //Rotation();
+        //Brake();
+        Movement();
+    }
+
+    void Acceleration()
+    {
+        float targetSpeed = 0f;
+
+        if (moveInput > 0)
+            targetSpeed = maxSpeed;
+        else if (moveInput < 0)
+            targetSpeed = reverseSpeed;
+
+        Vector3 targetVelocity = transform.forward * moveInput * targetSpeed;
+
+        sphereRB.linearVelocity = Vector3.Lerp(
+            sphereRB.linearVelocity,
+            targetVelocity,
+            Time.fixedDeltaTime * acceleration
+        );
+    }
+
+    void Movement()
+    {
+        if (Grounded())
+        {
+            if (!Input.GetKey(KeyCode.Space))
+            {
+                Acceleration();
+                Rotation();
+            }
+            Brake();
+        }
+        else
+        {
+            Gravity();
+        }
+        BikeTilt();
+    }
+
+    void Rotation()
+    {
+        transform.Rotate(0, steerInput * steerStrength * moveInput * Time.fixedDeltaTime, 0, Space.World);
+    }
+
+    void Brake()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            sphereRB.linearVelocity *= breakingFactor / 10;
+        }
+    }
+
+    bool Grounded()
+    {
+        /*Debug.DrawRay(origin, Vector3.down = checkDistance, Color.red, 0.1f);
+        if (Physics.Raycast(sphereRB.position, Vector3.down, out hit, rayLength, DrivableSurface))
+        {
+            Debug.Log("grounded");
+            isGrounded = true;
+            return true;
+            
+        }
+        else
+        {
+            Debug.Log("Not Grounded");
+            isGrounded = false; 
+            return false;
+        }*/
+        SphereCollider sphereCol = sphereRB.GetComponent<SphereCollider>();
+        Vector3 origin = sphereRB.position;
+        float distance = sphereCol.radius + 0.7f;   // generous for testing
+
+        // Visual debug ray (red = not hitting, green = hitting)
+        if (Physics.Raycast(origin, Vector3.down, out hit, distance, DrivableSurface))
+        {
+            Debug.DrawRay(origin, Vector3.down * distance, Color.green);
+            Debug.Log(" Grounded! Distance: " + hit.distance + " | Normal: " + hit.normal);
+            isGrounded = true;
+            return true;
+        }
+        else
+        {
+            Debug.DrawRay(origin, Vector3.down * distance, Color.red);
+            Debug.Log(" Not Grounded");
+            isGrounded = false;
+            return false;
+        }
+
+    }
+
+    void Gravity()
+    {
+        sphereRB.AddForce(gravity * Vector3.down, ForceMode.Acceleration);
+    }
+
+    void BikeTilt()
+    {
+        float xRot = (Quaternion.FromToRotation(bikeBody.transform.up, hit.normal) * bikeBody.transform.rotation).eulerAngles.x;
+        float zRot = -zTiltAngle * steerInput * Mathf.Abs(currentVelocityOffset);
+
+
+        Quaternion targetRot = Quaternion.Slerp(bikeBody.transform.rotation, Quaternion.Euler(xRot, transform.eulerAngles.y, zRot), bikeTiltIncrement);
+
+        //Quaternion newRotation = Quaternion.Euler(xRot, transform.eulerAngles.y, transform.eulerAngles.z);
+        Quaternion newRotation = Quaternion.Euler(targetRot.eulerAngles.x, transform.eulerAngles.y, targetRot.eulerAngles.z);
+        bikeBody.MoveRotation(newRotation);
+    }
+}
+
+/*using UnityEngine;
+using UnityEngine.InputSystem;
+
+//mine, based on video, edits
+
+public class PlayerController : MonoBehaviour
+{
+    [Header("Raycasts")]
+    RaycastHit hit;
+    private float rayLength;
+    [SerializeField]
+    private LayerMask DrivableSurface;
+
+    [Header("RigidBodies")]
+    [SerializeField]
+    private Rigidbody sphereRB;
+    [SerializeField]
+    private Rigidbody bikeBody;
+
+    [Header("Inputs")]
+    private float moveInput;
+    private float steerInput;
+
+    [Header("Speed")]
+    [SerializeField]
+    private float maxSpeed;
+    [SerializeField]
+    private float reverseSpeed;
     [SerializeField]
     private float acceleration;
 
@@ -83,7 +276,20 @@ public class PlayerController : MonoBehaviour
     void Acceleration()
     {
         //change to angularVelocity if it doesnt work
-        sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, moveInput * maxSpeed * transform.forward, Time.fixedDeltaTime * acceleration);
+        if (Input.GetKey(KeyCode.W))
+        {
+            sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, moveInput * maxSpeed * transform.forward, Time.fixedDeltaTime * acceleration);
+        }
+        
+    }
+
+    void Reverse()
+    {
+        if (Input.GetKey(KeyCode.S))
+        {
+            sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, moveInput * reverseSpeed * transform.forward, Time.fixedDeltaTime * acceleration);
+        }
+        
     }
 
     void Movement()
@@ -94,6 +300,7 @@ public class PlayerController : MonoBehaviour
             {
                 Acceleration();
                 Rotation();
+                Reverse();
             }
             Brake();
         }
@@ -132,8 +339,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Not Grounded");
             isGrounded = false; 
             return false;
-        }*/
-        SphereCollider sphereCol = sphereRB.GetComponent<SphereCollider>();
+        }
+SphereCollider sphereCol = sphereRB.GetComponent<SphereCollider>();
         Vector3 origin = sphereRB.position;
         float distance = sphereCol.radius + 0.7f;   // generous for testing
 
