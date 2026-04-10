@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         steerInput = Input.GetAxis("Horizontal");
         transform.position = sphereRB.transform.position;
 
-        currentVelocity = bikeBody.transform.InverseTransformDirection(bikeBody.angularVelocity);
+        currentVelocity = bikeBody.transform.InverseTransformDirection(bikeBody.linearVelocity);
         currentVelocityOffset = currentVelocity.z / maxSpeed;
         //bikeBody.MoveRotation(transform.rotation);
 
