@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         sphereRB.transform.parent = null;
         bikeBody.transform.parent = null;
 
-        rayLength = sphereRB.GetComponent<SphereCollider>().radius + 1f;
+        rayLength = sphereRB.GetComponent<SphereCollider>().radius + .7f;
     }
 
     private void Update()
@@ -81,20 +81,31 @@ public class PlayerController : MonoBehaviour
 
     void Acceleration()
     {
-        if (Mathf.Abs(moveInput) > 0.01f && !Input.GetKey(KeyCode.Space)) //While we break the motorbike its going to slow down gradually
+        if (Mathf.Abs(moveInput) > 0.01f && !Input.GetKey(KeyCode.Space))
         {
-            sphereRB.AddForce(transform.forward * moveInput * acceleration, ForceMode.Acceleration);
+            Vector3 moveDir = transform.forward;
+
+            if (isGrounded)
+            {
+                moveDir = Vector3.ProjectOnPlane(transform.forward, hit.normal).normalized;//ProjectOnPlane helps
+                //us to mantain our direction and projects it accord to the ramp inclination in parallel
+            }
+
+            sphereRB.AddForce(moveDir * moveInput * acceleration, ForceMode.Acceleration);
         }
 
-        if (sphereRB.linearVelocity.magnitude > 1f)
+        //This helps us for the bike traction
+        if (sphereRB.linearVelocity.magnitude > 1f) 
         {
-            //If player hits "Space" use driftaction, of not use .1f ......ifelse
             float currentTraction = Input.GetKey(KeyCode.Space) ? driftTraction : 0.1f;
 
-            sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, transform.forward * sphereRB.linearVelocity.magnitude, currentTraction);
+            // We allign the velocity with the ramp direction or inclination
+            Vector3 targetVelocityDir = isGrounded ? Vector3.ProjectOnPlane(transform.forward, hit.normal).normalized : transform.forward;
+
+            sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, targetVelocityDir * sphereRB.linearVelocity.magnitude, currentTraction);
         }
 
-        //Speedlimit 
+        //Top Spped
         if (sphereRB.linearVelocity.magnitude > maxSpeed)
             sphereRB.linearVelocity = sphereRB.linearVelocity.normalized * maxSpeed;
     }
@@ -171,6 +182,7 @@ public class PlayerController : MonoBehaviour
     void Gravity()
     {
         // Custom gravity force to prevent floating
+        float gravityMultiplier = (sphereRB.linearVelocity.y < 0) ? 1.5f : 1.0f;
         sphereRB.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
     }
 
