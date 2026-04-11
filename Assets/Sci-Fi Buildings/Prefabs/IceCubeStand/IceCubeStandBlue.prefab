@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4846410756602740561}
   - component: {fileID: 7252237608021969819}
   - component: {fileID: 448198523334913452}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: IceCubeStandBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

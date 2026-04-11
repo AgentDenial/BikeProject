@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5617323252593555845}
   - component: {fileID: 7642690985544224079}
   - component: {fileID: 3217641891725168677}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: HDStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

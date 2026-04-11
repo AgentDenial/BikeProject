@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6970714101057371647}
   - component: {fileID: 5140864210380802357}
   - component: {fileID: 7266701829403124569}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: MitikoStandGrayYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

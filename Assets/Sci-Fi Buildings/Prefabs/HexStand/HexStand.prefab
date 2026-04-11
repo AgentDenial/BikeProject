@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2810823846049104451}
   - component: {fileID: 65014314479957641}
   - component: {fileID: 7348788575245628339}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: HexStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

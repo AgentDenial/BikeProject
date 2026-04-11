@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3400851611615034478}
   - component: {fileID: 636898485700921508}
   - component: {fileID: 6814042259348226820}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: TrisStandBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

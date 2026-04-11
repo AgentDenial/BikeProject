@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4444309047558818061}
   - component: {fileID: 1894235066601356743}
   - component: {fileID: -2191275148913326328}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: IceCubeStandAqua
   m_TagString: Untagged
   m_Icon: {fileID: 0}

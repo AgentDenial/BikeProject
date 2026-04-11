@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9207907999806925394}
   - component: {fileID: 6354008168492228248}
   - component: {fileID: 1437375208351014777}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: RocketStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

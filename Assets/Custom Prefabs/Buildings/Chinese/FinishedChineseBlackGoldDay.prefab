@@ -45,6 +45,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'ChineseStand '
       objectReference: {fileID: 0}
+    - target: {fileID: 7465643740638295493, guid: 4ec4d596428cd93488e853fc9446f05d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7840938208625782655, guid: 4ec4d596428cd93488e853fc9446f05d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -146,6 +150,10 @@ PrefabInstance:
     - target: {fileID: 6623981847690083211, guid: b850a0f8d28bd6642b82f42ce3ab14ac, type: 3}
       propertyPath: m_Name
       value: ChineseBlackGoldDay
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623981847690083211, guid: b850a0f8d28bd6642b82f42ce3ab14ac, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8902990197479591908}
   - component: {fileID: 6658907554558425902}
   - component: {fileID: -3452265183324434195}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: IceCubeStandWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

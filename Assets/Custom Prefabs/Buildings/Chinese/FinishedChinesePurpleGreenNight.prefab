@@ -45,6 +45,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChinesePurpleGreenNight
       objectReference: {fileID: 0}
+    - target: {fileID: 3585504561545673164, guid: 9a41df69d08a9374d9f0b247d3188ad5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4218067222868304758, guid: 9a41df69d08a9374d9f0b247d3188ad5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -106,6 +110,10 @@ PrefabInstance:
     - target: {fileID: 7465643740638295493, guid: 4ec4d596428cd93488e853fc9446f05d, type: 3}
       propertyPath: m_Name
       value: ChineseStand
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465643740638295493, guid: 4ec4d596428cd93488e853fc9446f05d, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7840938208625782655, guid: 4ec4d596428cd93488e853fc9446f05d, type: 3}
       propertyPath: m_LocalPosition.x

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4183082141097960656}
   - component: {fileID: 2155460891355402266}
   - component: {fileID: -7843737330104895451}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: EmpireStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

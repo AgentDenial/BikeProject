@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HDBlackWhiteDay
       objectReference: {fileID: 0}
+    - target: {fileID: 1174741206166716228, guid: 47c2b9b26b5ea124dbba18b4090cd9cc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

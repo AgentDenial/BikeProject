@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8229037334544229127}
   - component: {fileID: 6185586965987940301}
   - component: {fileID: 5858983364049865485}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: SpaceBuildStandAqua
   m_TagString: Untagged
   m_Icon: {fileID: 0}

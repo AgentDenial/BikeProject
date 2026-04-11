@@ -22452,7 +22452,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7286066901144628037}
-  - component: {fileID: 3810092645071883111}
   m_Layer: 0
   m_Name: PlayerBike
   m_TagString: Player
@@ -22478,32 +22477,6 @@ Transform:
   - {fileID: 2178454302104274421}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3810092645071883111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4585725168612348059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d61fbff1db2678c48acfb2dbcd6ebebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  DrivableSurface:
-    serializedVersion: 2
-    m_Bits: 8
-  sphereRB: {fileID: 1655014776393372588}
-  bikeBody: {fileID: 701459168551115149}
-  maxSpeed: 50
-  reverseSpeed: 10
-  acceleration: 5
-  steerStrength: 100
-  gravity: 10
-  zTiltAngle: 45
-  bikeTiltIncrement: 0.9
-  breakingFactor: 7.53
-  isGrounded: 0
 --- !u!1 &5695800764686726068
 GameObject:
   m_ObjectHideFlags: 0

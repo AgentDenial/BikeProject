@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2898000518107818170}
   - component: {fileID: 1140311566972230768}
   - component: {fileID: -1559679182679725528}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: SpaceBuildStandOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}

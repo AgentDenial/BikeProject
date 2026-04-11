@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1540871488573192701}
   - component: {fileID: 3640792226792885559}
   - component: {fileID: -4617525091681171909}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: MitikoStandBlackAqua
   m_TagString: Untagged
   m_Icon: {fileID: 0}

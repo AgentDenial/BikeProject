@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4604600705121417426}
   - component: {fileID: 1729985580014930968}
   - component: {fileID: -6593308218095364222}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: TowerStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

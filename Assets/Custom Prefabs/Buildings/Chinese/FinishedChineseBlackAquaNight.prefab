@@ -45,6 +45,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChineseStand
       objectReference: {fileID: 0}
+    - target: {fileID: 7465643740638295493, guid: 4ec4d596428cd93488e853fc9446f05d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7840938208625782655, guid: 4ec4d596428cd93488e853fc9446f05d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -106,6 +110,10 @@ PrefabInstance:
     - target: {fileID: 557585252316061827, guid: ddf38c48c5842174dbd69fd2efa25dc7, type: 3}
       propertyPath: m_Name
       value: ChineseBlackAquaNight
+      objectReference: {fileID: 0}
+    - target: {fileID: 557585252316061827, guid: ddf38c48c5842174dbd69fd2efa25dc7, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 934251154634439225, guid: ddf38c48c5842174dbd69fd2efa25dc7, type: 3}
       propertyPath: m_LocalPosition.x
