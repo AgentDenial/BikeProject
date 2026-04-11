@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4069687353343625955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1890820977602138479}
+  m_Layer: 0
+  m_Name: FinishedtrisOrangeNight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1890820977602138479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069687353343625955}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -30, y: 182.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3050281416050737610}
+  - {fileID: 7727193945694748953}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &672716816320968553
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1890820977602138479}
+    m_Modifications:
+    - target: {fileID: 2522366158578923171, guid: fbd70593793f1054a946acd767667f54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522366158578923171, guid: fbd70593793f1054a946acd767667f54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522366158578923171, guid: fbd70593793f1054a946acd767667f54, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522366158578923171, guid: fbd70593793f1054a946acd767667f54, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522366158578923171, guid: fbd70593793f1054a946acd767667f54, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522366158578923171, guid: fbd70593793f1054a946acd767667f54, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522366158578923171, guid: fbd70593793f1054a946acd767667f54, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522366158578923171, guid: fbd70593793f1054a946acd767667f54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522366158578923171, guid: fbd70593793f1054a946acd767667f54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522366158578923171, guid: fbd70593793f1054a946acd767667f54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903394613444242457, guid: fbd70593793f1054a946acd767667f54, type: 3}
+      propertyPath: m_Name
+      value: TrisOrangeNight
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fbd70593793f1054a946acd767667f54, type: 3}
+--- !u!4 &3050281416050737610 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2522366158578923171, guid: fbd70593793f1054a946acd767667f54, type: 3}
+  m_PrefabInstance: {fileID: 672716816320968553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5319369981137069175
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1890820977602138479}
+    m_Modifications:
+    - target: {fileID: 2517146211247613294, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517146211247613294, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -182.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517146211247613294, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517146211247613294, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517146211247613294, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517146211247613294, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517146211247613294, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517146211247613294, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517146211247613294, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517146211247613294, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000914162807357396, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+      propertyPath: m_Name
+      value: TrisStandOrange
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+--- !u!4 &7727193945694748953 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2517146211247613294, guid: a4791994a96327e4dadc5fbec3816ce5, type: 3}
+  m_PrefabInstance: {fileID: 5319369981137069175}
+  m_PrefabAsset: {fileID: 0}
