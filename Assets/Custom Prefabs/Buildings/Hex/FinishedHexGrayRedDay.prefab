@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4207512653306937673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4416799270525373659}
+  m_Layer: 0
+  m_Name: FinishedHexGrayRedDay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4416799270525373659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4207512653306937673}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 65, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7267706961756428474}
+  - {fileID: 3991000477650384067}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &568695429987988661
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4416799270525373659}
+    m_Modifications:
+    - target: {fileID: 7149602409154767887, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149602409154767887, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149602409154767887, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149602409154767887, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149602409154767887, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149602409154767887, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149602409154767887, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149602409154767887, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149602409154767887, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149602409154767887, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526549816692848309, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+      propertyPath: m_Name
+      value: HexGrayRedDay
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+--- !u!4 &7267706961756428474 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7149602409154767887, guid: fe4eca3aef43ceb4f9a5f2e63abaef96, type: 3}
+  m_PrefabInstance: {fileID: 568695429987988661}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2868572210094192933
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4416799270525373659}
+    m_Modifications:
+    - target: {fileID: 1201853001925086694, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201853001925086694, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201853001925086694, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201853001925086694, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201853001925086694, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201853001925086694, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201853001925086694, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201853001925086694, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201853001925086694, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201853001925086694, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010301278446098268, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+      propertyPath: m_Name
+      value: HexStand
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+--- !u!4 &3991000477650384067 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1201853001925086694, guid: e420b04405078c143a58b6a4d59e3a19, type: 3}
+  m_PrefabInstance: {fileID: 2868572210094192933}
+  m_PrefabAsset: {fileID: 0}
