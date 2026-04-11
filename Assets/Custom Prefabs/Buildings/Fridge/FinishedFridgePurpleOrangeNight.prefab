@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5247678912262414151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7320628322660949471}
+  m_Layer: 0
+  m_Name: FinishedFridgePurpleOrangeNight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7320628322660949471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5247678912262414151}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 109, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2632270068653433604}
+  - {fileID: 8715630691871961174}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1788221456151656857
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7320628322660949471}
+    m_Modifications:
+    - target: {fileID: 6927989916410546639, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927989916410546639, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -109
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927989916410546639, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927989916410546639, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927989916410546639, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927989916410546639, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927989916410546639, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927989916410546639, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927989916410546639, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927989916410546639, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741400460188439413, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+      propertyPath: m_Name
+      value: FridgeStand
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+--- !u!4 &8715630691871961174 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6927989916410546639, guid: 601a2ea27d9298e4c87d33a1e9b61f1a, type: 3}
+  m_PrefabInstance: {fileID: 1788221456151656857}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2265374381588345238
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7320628322660949471}
+    m_Modifications:
+    - target: {fileID: 3511781854826760232, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+      propertyPath: m_Name
+      value: FridgePurpleOrangeNight
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321074448975057554, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321074448975057554, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321074448975057554, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321074448975057554, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321074448975057554, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321074448975057554, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321074448975057554, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321074448975057554, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321074448975057554, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321074448975057554, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+--- !u!4 &2632270068653433604 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4321074448975057554, guid: 5d6dab7b285b783419675205fab0f4d3, type: 3}
+  m_PrefabInstance: {fileID: 2265374381588345238}
+  m_PrefabAsset: {fileID: 0}
