@@ -3,111 +3,64 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Raycasts")]
-    RaycastHit hit;
+    private RaycastHit hit;
     private float rayLength;
-    [SerializeField]
-    private LayerMask DrivableSurface;
+    [SerializeField] private LayerMask DrivableSurface;
 
     [Header("RigidBodies")]
-    [SerializeField]
-    private Rigidbody sphereRB;
-    [SerializeField]
-    private Rigidbody bikeBody;
+    [SerializeField] private Rigidbody sphereRB; // La esfera física
+    [SerializeField] private GameObject bikeBody; // El modelo visual de la moto
 
     [Header("Inputs")]
     private float moveInput;
     private float steerInput;
 
     [Header("Speed")]
-    [SerializeField]
-    private float maxSpeed;
-    [SerializeField]
-    private float acceleration;
+    [SerializeField] private float maxSpeed = 50f;
+    [SerializeField] private float acceleration = 30f;
 
     [Header("Steering")]
-    [SerializeField]
-    private float steerStrength;
+    [SerializeField] private float steerStrength = 100f;
 
     [Header("Gravity")]
-    [SerializeField]
-    private float gravity;
+    [SerializeField] private float gravity = -80f;
 
     [Header("Tilting")]
-    [SerializeField]
-    private float zTiltAngle;
-    [SerializeField]
-    private float bikeTiltIncrement;
+    [SerializeField] private float zTiltAngle = 45f;
+    [SerializeField] private float bikeTiltIncrement = 0.1f;
     private float currentVelocityOffset;
-    private Vector3 currentVelocity;
-
-    [Header("Breaking")]
-    [Range(0, 1)] // Changed to 0-1 for better multiplication logic
-    public float breakingFactor = 0.95f;
 
     [Header("Drift Settings")]
-    public float driftSteerMultiplier = 2.0f;
     public float driftTraction = 0.02f;
 
-    [Header("Tests")]
-    [SerializeField]
-    private bool isGrounded;
+    [Header("Status")]
+    [SerializeField] private bool isGrounded;
 
     private void Start()
     {
-        // Detach physics from parent to allow free rolling
+        // Separamos la esfera para que no rote el contenedor
         sphereRB.transform.parent = null;
-        bikeBody.transform.parent = null;
 
-        rayLength = sphereRB.GetComponent<SphereCollider>().radius + .7f;
+        // Ajustamos el rayo según el radio de tu esfera
+        rayLength = sphereRB.GetComponent<SphereCollider>().radius + 0.2f;
     }
 
     private void Update()
     {
-        // Getting raw input for arcade feeling
+        // Obtener Inputs
         moveInput = Input.GetAxisRaw("Vertical");
         steerInput = Input.GetAxisRaw("Horizontal");
 
-        // Main container follows the sphere position
+        // El contenedor sigue a la esfera
         transform.position = sphereRB.transform.position;
 
-        currentVelocity = bikeBody.transform.InverseTransformDirection(sphereRB.linearVelocity);
-        currentVelocityOffset = currentVelocity.z / maxSpeed;
+        // Factor de velocidad para inclinación y giro
+        currentVelocityOffset = sphereRB.linearVelocity.magnitude / maxSpeed;
     }
 
     private void FixedUpdate()
     {
         Movement();
-    }
-
-    void Acceleration()
-    {
-        if (Mathf.Abs(moveInput) > 0.01f && !Input.GetKey(KeyCode.Space))
-        {
-            Vector3 moveDir = transform.forward;
-
-            if (isGrounded)
-            {
-                moveDir = Vector3.ProjectOnPlane(transform.forward, hit.normal).normalized;//ProjectOnPlane helps
-                //us to mantain our direction and projects it accord to the ramp inclination in parallel
-            }
-
-            sphereRB.AddForce(moveDir * moveInput * acceleration, ForceMode.Acceleration);
-        }
-
-        //This helps us for the bike traction
-        if (sphereRB.linearVelocity.magnitude > 1f) 
-        {
-            float currentTraction = Input.GetKey(KeyCode.Space) ? driftTraction : 0.1f;
-
-            // We allign the velocity with the ramp direction or inclination
-            Vector3 targetVelocityDir = isGrounded ? Vector3.ProjectOnPlane(transform.forward, hit.normal).normalized : transform.forward;
-
-            sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, targetVelocityDir * sphereRB.linearVelocity.magnitude, currentTraction);
-        }
-
-        //Top Spped
-        if (sphereRB.linearVelocity.magnitude > maxSpeed)
-            sphereRB.linearVelocity = sphereRB.linearVelocity.normalized * maxSpeed;
     }
 
     void Movement()
@@ -116,13 +69,8 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded)
         {
+            Acceleration();
             Rotation();
-
-            if (!Input.GetKey(KeyCode.Space))
-            {
-                Acceleration();
-            }
-
             Brake();
         }
         else
@@ -133,73 +81,111 @@ public class PlayerController : MonoBehaviour
         BikeTilt();
     }
 
+    void Acceleration()
+    {
+        // 1. Lógica de Empuje (Adelante/Atrás)
+        if (Mathf.Abs(moveInput) > 0.01f && !Input.GetKey(KeyCode.Space))
+        {
+            // Verificamos si la moto ya se mueve hacia adelante
+            float forwardSpeed = Vector3.Dot(transform.forward, sphereRB.linearVelocity);
+
+            // Si presionas S pero vas rápido hacia adelante, NO aceleramos (frenamos primero)
+            bool isBraking = (moveInput < -0.1f && forwardSpeed > 1f);
+
+            if (!isBraking)
+            {
+                Vector3 moveDir = Vector3.ProjectOnPlane(transform.forward, hit.normal).normalized;
+                sphereRB.AddForce(moveDir * moveInput * acceleration, ForceMode.Acceleration);
+            }
+        }
+
+        // 2. Tracción y Alineación de velocidad
+        if (sphereRB.linearVelocity.magnitude > 1f)
+        {
+            float currentTraction = Input.GetKey(KeyCode.Space) ? driftTraction : 0.15f;
+            Vector3 targetVelocityDir = isGrounded ? Vector3.ProjectOnPlane(transform.forward, hit.normal).normalized : transform.forward;
+
+            sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, targetVelocityDir * sphereRB.linearVelocity.magnitude, currentTraction);
+        }
+
+        // 3. Fricción automática cuando no hay input
+        if (Mathf.Abs(moveInput) < 0.01f)
+        {
+            sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, Vector3.zero, Time.fixedDeltaTime * 2f);
+        }
+
+        // Límite de Velocidad
+        if (sphereRB.linearVelocity.magnitude > maxSpeed)
+            sphereRB.linearVelocity = sphereRB.linearVelocity.normalized * maxSpeed;
+    }
+
     void Rotation()
     {
         float currentSteer = steerStrength;
+        if (Input.GetKey(KeyCode.Space)) currentSteer *= 1.5f;
 
-        //Hre we combine the steer strenght with the drifting 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            currentSteer *= 1.5f;
-        }
-
-        float turn = steerInput * currentSteer * Time.fixedDeltaTime;
-
-        // We only rotate if we are moving
-        if (sphereRB.linearVelocity.magnitude > 1f)
-        {
-            transform.Rotate(0, turn, 0, Space.World);
-        }
+        // Solo giramos si tenemos algo de velocidad
+        float turn = steerInput * currentSteer * Time.fixedDeltaTime * Mathf.Clamp01(currentVelocityOffset * 2f);
+        transform.Rotate(0, turn, 0, Space.World);
     }
 
     void Brake()
     {
+        // HANDBRAKE (Drift)
         if (Input.GetKey(KeyCode.Space))
         {
-            //Drift momentum
             sphereRB.linearVelocity *= 0.98f;
+        }
+
+        // FULL STOP (Presionar S mientras vas hacia adelante)
+        float forwardSpeed = Vector3.Dot(transform.forward, sphereRB.linearVelocity);
+        if (moveInput < -0.1f && forwardSpeed > 0.5f)
+        {
+            sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, Vector3.zero, Time.fixedDeltaTime * 10f);
         }
     }
 
     bool Grounded()
     {
-        Vector3 origin = sphereRB.position;
-        // Raycast logic to detect the floor
-        if (Physics.Raycast(origin, Vector3.down, out hit, rayLength, DrivableSurface))
+        if (Physics.Raycast(sphereRB.position, Vector3.down, out hit, rayLength, DrivableSurface))
         {
-            Debug.DrawRay(origin, Vector3.down * rayLength, Color.green);
-            isGrounded = true;
+            Debug.DrawRay(sphereRB.position, Vector3.down * rayLength, Color.green);
             return true;
         }
-        else
-        {
-            Debug.DrawRay(origin, Vector3.down * rayLength, Color.red);
-            isGrounded = false;
-            return false;
-        }
+        Debug.DrawRay(sphereRB.position, Vector3.down * rayLength, Color.red);
+        return false;
     }
 
     void Gravity()
     {
-        // Custom gravity force to prevent floating
-        float gravityMultiplier = (sphereRB.linearVelocity.y < 0) ? 1.5f : 1.0f;
-        sphereRB.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
+        float multiplier = (sphereRB.linearVelocity.y < 0) ? 2.0f : 1.0f;
+        sphereRB.AddForce(Vector3.up * gravity * multiplier, ForceMode.Acceleration);
     }
 
     void BikeTilt()
     {
-        // Align visual model with ground normal and apply steering lean
-        float xRot = (Quaternion.FromToRotation(bikeBody.transform.up, hit.normal) * bikeBody.transform.rotation).eulerAngles.x;
-        float zRot = 0;
-
-        if (currentVelocityOffset > 0.1f)
+        if (isGrounded)
         {
-            zRot = -zTiltAngle * steerInput * currentVelocityOffset;
+            // 1. Calculamos la inclinación frontal (X) basada en la rampa
+            // Usamos transform.InverseTransformDirection para que la inclinación sea relativa a la moto
+            Vector3 localNormal = transform.InverseTransformDirection(hit.normal);
+            float xRot = Mathf.Atan2(localNormal.z, localNormal.y) * Mathf.Rad2Deg;
+
+            // 2. Calculamos la inclinación lateral (Z)
+            // Multiplicamos por currentVelocityOffset para que no se incline si está parada
+            float zRot = -zTiltAngle * steerInput * currentVelocityOffset;
+
+            // 3. Creamos la rotación local objetivo
+            // Mantenemos Y en 0 porque el padre (PlayerBike) ya maneja la dirección
+            Quaternion targetLocalRot = Quaternion.Euler(xRot, 0, zRot);
+
+            // 4. Aplicamos el Slerp (Aumenta bikeTiltIncrement en el inspector para más respuesta)
+            bikeBody.transform.localRotation = Quaternion.Slerp(bikeBody.transform.localRotation, targetLocalRot, bikeTiltIncrement);
         }
-
-        Quaternion targetRot = Quaternion.Slerp(bikeBody.transform.rotation, Quaternion.Euler(xRot, transform.eulerAngles.y, zRot), bikeTiltIncrement);
-        Quaternion newRotation = Quaternion.Euler(targetRot.eulerAngles.x, transform.eulerAngles.y, targetRot.eulerAngles.z);
-
-        bikeBody.MoveRotation(newRotation);
+        else
+        {
+            // En el aire, regresamos a la posición neutral rápido para aterrizar bien
+            bikeBody.transform.localRotation = Quaternion.Slerp(bikeBody.transform.localRotation, Quaternion.identity, Time.deltaTime * 5f);
+        }
     }
 }
