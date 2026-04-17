@@ -9,7 +9,7 @@ public class BikeController : MonoBehaviour
 
     [HideInInspector] public Vector3 velocity;
 
-    public float maxSpeed, acceleration, steerStrenght, tiltAngle, gravity, bikeXTiltIncrement = .9f, zTiltAngle = 45f, handleRotVal = 30f , handleRotSpeed = .15f ;
+    public float maxSpeed, maxReverseSpeed = 20f, acceleration, steerStrenght, tiltAngle, gravity, bikeXTiltIncrement = .9f, zTiltAngle = 45f, handleRotVal = 30f , handleRotSpeed = .15f ;
     public float skidWidth = .062f, minSkidVelocity = 10f, tyreRotSpeed = 10000f;
     public float norDrag = 2f, driftDrag = 0.5f; 
     public Rigidbody sphereRB, BikeBody;
@@ -80,7 +80,14 @@ public class BikeController : MonoBehaviour
 
     void Acceleration()
     {
-        sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, maxSpeed * moveInput * transform.forward, Time.fixedDeltaTime * acceleration);
+        float targetSpeed = moveInput >= 0 ? maxSpeed : maxReverseSpeed;
+        Vector3 targetVelocity = targetSpeed * moveInput * transform.forward;
+
+        sphereRB.linearVelocity = Vector3.Lerp(
+            sphereRB.linearVelocity,
+            targetVelocity,
+            Time.fixedDeltaTime * acceleration
+        );
     }
 
     void Rotation()
