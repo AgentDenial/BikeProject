@@ -973,7 +973,7 @@ Transform:
       objectReference: {fileID: 1247957710}
     - target: {fileID: 6136941390996319466, guid: bb0328d7da079fd43bd8dfacf54e90ed, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6668574512377112827, guid: bb0328d7da079fd43bd8dfacf54e90ed, type: 3}
       propertyPath: m_Mesh
