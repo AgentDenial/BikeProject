@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2243078351925349231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6009082049424068423}
+  m_Layer: 0
+  m_Name: FinishedSpaceBuildBlueNight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6009082049424068423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243078351925349231}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 263.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3588603709208618201}
+  - {fileID: 802805148753872869}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &698853640957517981
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6009082049424068423}
+    m_Modifications:
+    - target: {fileID: 186601041210812280, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 186601041210812280, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -263.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 186601041210812280, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 186601041210812280, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 186601041210812280, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 186601041210812280, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 186601041210812280, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 186601041210812280, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 186601041210812280, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 186601041210812280, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 710759518059298242, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+      propertyPath: m_Name
+      value: SpaceBuildStandGreen
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+--- !u!4 &802805148753872869 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 186601041210812280, guid: d192a28fc413ba143aa834ffd363bb7f, type: 3}
+  m_PrefabInstance: {fileID: 698853640957517981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8724868888412868261
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6009082049424068423}
+    m_Modifications:
+    - target: {fileID: 4869075801552974022, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+      propertyPath: m_Name
+      value: SpaceBuildBlueNight
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249435784304634492, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249435784304634492, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249435784304634492, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249435784304634492, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249435784304634492, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249435784304634492, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249435784304634492, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249435784304634492, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249435784304634492, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249435784304634492, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+--- !u!4 &3588603709208618201 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5249435784304634492, guid: c257386a326e4e142898dc31ee7452a5, type: 3}
+  m_PrefabInstance: {fileID: 8724868888412868261}
+  m_PrefabAsset: {fileID: 0}

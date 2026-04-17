@@ -9,14 +9,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - DrivableSurface
+  - 
   - Water
   - UI
   - sphereRB
   - bikeBody
-  - 
-  - 
-  - 
+  - Environment
+  - Destructable
+  - DrivableSurface
   - 
   - 
   - 

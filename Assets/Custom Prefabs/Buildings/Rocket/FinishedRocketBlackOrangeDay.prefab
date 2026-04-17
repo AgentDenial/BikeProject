@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &10739245807920552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8423476319868534592}
+  m_Layer: 0
+  m_Name: FinishedRocketBlackOrangeDay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8423476319868534592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10739245807920552}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 72, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3143416458655804637}
+  - {fileID: 5520298197772032840}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &358843115384700607
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8423476319868534592}
+    m_Modifications:
+    - target: {fileID: 4840530343759413069, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+      propertyPath: m_Name
+      value: RocketStand
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217090448148342263, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217090448148342263, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217090448148342263, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217090448148342263, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217090448148342263, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217090448148342263, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217090448148342263, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217090448148342263, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217090448148342263, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217090448148342263, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+--- !u!4 &5520298197772032840 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5217090448148342263, guid: 708c8680b3b5aa84f8972027503a8292, type: 3}
+  m_PrefabInstance: {fileID: 358843115384700607}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7053637093947950215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8423476319868534592}
+    m_Modifications:
+    - target: {fileID: 4699494809678820064, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+      propertyPath: m_Name
+      value: RocketBlackOrangeDay
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367205597844531290, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367205597844531290, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367205597844531290, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367205597844531290, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367205597844531290, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367205597844531290, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367205597844531290, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367205597844531290, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367205597844531290, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367205597844531290, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+--- !u!4 &3143416458655804637 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5367205597844531290, guid: 318a4e4a5d87dd04e85401b373ae4f82, type: 3}
+  m_PrefabInstance: {fileID: 7053637093947950215}
+  m_PrefabAsset: {fileID: 0}

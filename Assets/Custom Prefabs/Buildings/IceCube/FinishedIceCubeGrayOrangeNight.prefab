@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2851945862269583410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1966534600519042788}
+  m_Layer: 0
+  m_Name: FinishedIceCubeGrayOrangeNight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1966534600519042788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2851945862269583410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8911475361272825497}
+  - {fileID: 4537682844693923353}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &8939968211392318548
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1966534600519042788}
+    m_Modifications:
+    - target: {fileID: 4821159723322526285, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821159723322526285, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821159723322526285, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821159723322526285, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821159723322526285, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821159723322526285, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821159723322526285, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821159723322526285, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821159723322526285, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821159723322526285, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306335015343165687, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+      propertyPath: m_Name
+      value: IceCubeStandRed
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+--- !u!4 &4537682844693923353 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4821159723322526285, guid: aeed2685c6b1d0a47b3714a0c4a7c8e8, type: 3}
+  m_PrefabInstance: {fileID: 8939968211392318548}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8966094541908021653
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1966534600519042788}
+    m_Modifications:
+    - target: {fileID: 560166930672981772, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 560166930672981772, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 79.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 560166930672981772, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 560166930672981772, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 560166930672981772, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 560166930672981772, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 560166930672981772, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 560166930672981772, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 560166930672981772, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 560166930672981772, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 904603914314141110, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+      propertyPath: m_Name
+      value: IceCubeGrayOrangeNight
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+--- !u!4 &8911475361272825497 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 560166930672981772, guid: 2093b534654a5c24dabf53c32a441c4e, type: 3}
+  m_PrefabInstance: {fileID: 8966094541908021653}
+  m_PrefabAsset: {fileID: 0}

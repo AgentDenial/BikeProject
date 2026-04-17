@@ -1,310 +1,191 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-
-//youtube example code
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Raycasts")]
-    RaycastHit hit;
+    private RaycastHit hit;
     private float rayLength;
-    [SerializeField]
-    private LayerMask DrivableSurface;
+    [SerializeField] private LayerMask DrivableSurface;
 
     [Header("RigidBodies")]
-    [SerializeField]
-    private Rigidbody sphereRB;
-    [SerializeField]
-    private Rigidbody bikeBody;
+    [SerializeField] private Rigidbody sphereRB; // La esfera f�sica
+    [SerializeField] private GameObject bikeBody; // El modelo visual de la moto
 
     [Header("Inputs")]
     private float moveInput;
     private float steerInput;
 
     [Header("Speed")]
-    [SerializeField]
-    private float maxSpeed;
-    [SerializeField]
-    private float acceleration;
-    [SerializeField]
-    private float reverseSpeed;
+    [SerializeField] private float maxSpeed = 50f;
+    [SerializeField] private float acceleration = 30f;
 
     [Header("Steering")]
-    [SerializeField]
-    private float steerStrength;
+    [SerializeField] private float steerStrength = 100f;
 
     [Header("Gravity")]
-    [SerializeField]
-    private float gravity;
+    [SerializeField] private float gravity = -80f;
 
     [Header("Tilting")]
-    [SerializeField]
-    private float zTiltAngle;
-    [SerializeField]
-    private float bikeTiltIncrement;
+    [SerializeField] private float zTiltAngle = 45f;
+    [SerializeField] private float bikeTiltIncrement = 0.1f;
     private float currentVelocityOffset;
-    private Vector3 currentVelocity;
 
-    [Header("Breaking")]
-    [Range(1, 10)]
-    public float breakingFactor;
+    [Header("Drift Settings")]
+    public float driftTraction = 0.02f;
 
-    [Header("Tests")]
-    [SerializeField]
-    private bool isGrounded;
+    [Header("Status")]
+    [SerializeField] private bool isGrounded;
 
     private void Start()
     {
+        // Separamos la esfera para que no rote el contenedor
         sphereRB.transform.parent = null;
-        bikeBody.transform.parent = null;
-        //moveInput = Input.GetAxis("Horizontal");
 
-        rayLength = sphereRB.GetComponent<SphereCollider>().radius + .07f;
+        // Ajustamos el rayo seg�n el radio de tu esfera
+        rayLength = sphereRB.GetComponent<SphereCollider>().radius + 0.2f;
     }
 
     private void Update()
     {
-        moveInput = Input.GetAxis("Vertical");
-        steerInput = Input.GetAxis("Horizontal");
+        // Obtener Inputs
+        moveInput = Input.GetAxisRaw("Vertical");
+        steerInput = Input.GetAxisRaw("Horizontal");
+
+        // El contenedor sigue a la esfera
         transform.position = sphereRB.transform.position;
 
-        currentVelocity = bikeBody.transform.InverseTransformDirection(sphereRB.linearVelocity);
-
-        float speedReference = currentVelocity.z >= 0 ? maxSpeed : reverseSpeed;
-        currentVelocityOffset = Mathf.Clamp(currentVelocity.z / speedReference, -1f, 1f);
-
+        // Factor de velocidad para inclinaci�n y giro
+        currentVelocityOffset = sphereRB.linearVelocity.magnitude / maxSpeed;
     }
 
     private void FixedUpdate()
     {
-        //Acceleration();
-        //Rotation();
-        //Brake();
         Movement();
-    }
-
-    void Acceleration()
-    {
-        float targetSpeed = 0f;
-
-        if (moveInput > 0)
-            targetSpeed = maxSpeed;
-        else if (moveInput < 0)
-            targetSpeed = reverseSpeed;
-
-        Vector3 targetVelocity = transform.forward * moveInput * targetSpeed;
-
-        sphereRB.linearVelocity = Vector3.Lerp(
-            sphereRB.linearVelocity,
-            targetVelocity,
-            Time.fixedDeltaTime * acceleration
-        );
     }
 
     void Movement()
     {
-        if (Grounded())
+        isGrounded = Grounded();
+
+        if (isGrounded)
         {
-            if (!Input.GetKey(KeyCode.Space))
-            {
-                Acceleration();
-                Rotation();
-            }
+            Acceleration();
+            Rotation();
             Brake();
         }
         else
         {
             Gravity();
         }
+
         BikeTilt();
+    }
+
+    void Acceleration()
+    {
+        // 1. L�gica de Empuje (Adelante/Atr�s)
+        if (Mathf.Abs(moveInput) > 0.01f && !Input.GetKey(KeyCode.Space))
+        {
+            // Verificamos si la moto ya se mueve hacia adelante
+            float forwardSpeed = Vector3.Dot(transform.forward, sphereRB.linearVelocity);
+
+            // Si presionas S pero vas r�pido hacia adelante, NO aceleramos (frenamos primero)
+            bool isBraking = (moveInput < -0.1f && forwardSpeed > 1f);
+
+            if (!isBraking)
+            {
+                Vector3 moveDir = Vector3.ProjectOnPlane(transform.forward, hit.normal).normalized;
+                sphereRB.AddForce(moveDir * moveInput * acceleration, ForceMode.Acceleration);
+            }
+        }
+
+        // 2. Tracci�n y Alineaci�n de velocidad
+        if (sphereRB.linearVelocity.magnitude > 1f)
+        {
+            float currentTraction = Input.GetKey(KeyCode.Space) ? driftTraction : 0.15f;
+            Vector3 targetVelocityDir = isGrounded ? Vector3.ProjectOnPlane(transform.forward, hit.normal).normalized : transform.forward;
+
+            sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, targetVelocityDir * sphereRB.linearVelocity.magnitude, currentTraction);
+        }
+
+        // 3. Fricci�n autom�tica cuando no hay input
+        if (Mathf.Abs(moveInput) < 0.01f)
+        {
+            sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, Vector3.zero, Time.fixedDeltaTime * 2f);
+        }
+
+        // L�mite de Velocidad
+        if (sphereRB.linearVelocity.magnitude > maxSpeed)
+            sphereRB.linearVelocity = sphereRB.linearVelocity.normalized * maxSpeed;
     }
 
     void Rotation()
     {
-        transform.Rotate(0, steerInput * steerStrength * moveInput * Time.fixedDeltaTime, 0, Space.World);
+        float currentSteer = steerStrength;
+        if (Input.GetKey(KeyCode.Space)) currentSteer *= 1.5f;
+
+        // Solo giramos si tenemos algo de velocidad
+        float turn = steerInput * currentSteer * Time.fixedDeltaTime * Mathf.Clamp01(currentVelocityOffset * 2f);
+        transform.Rotate(0, turn, 0, Space.World);
     }
 
     void Brake()
     {
+        // HANDBRAKE (Drift)
         if (Input.GetKey(KeyCode.Space))
         {
-            sphereRB.linearVelocity *= breakingFactor / 10;
+            sphereRB.linearVelocity *= 0.98f;
+        }
+
+        // FULL STOP (Presionar S mientras vas hacia adelante)
+        float forwardSpeed = Vector3.Dot(transform.forward, sphereRB.linearVelocity);
+        if (moveInput < -0.1f && forwardSpeed > 0.5f)
+        {
+            sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, Vector3.zero, Time.fixedDeltaTime * 10f);
         }
     }
 
     bool Grounded()
     {
-        /*Debug.DrawRay(origin, Vector3.down = checkDistance, Color.red, 0.1f);
         if (Physics.Raycast(sphereRB.position, Vector3.down, out hit, rayLength, DrivableSurface))
         {
-            Debug.Log("grounded");
-            isGrounded = true;
-            return true;
-            
-        }
-        else
-        {
-            Debug.Log("Not Grounded");
-            isGrounded = false; 
-            return false;
-        }*/
-        SphereCollider sphereCol = sphereRB.GetComponent<SphereCollider>();
-        Vector3 origin = sphereRB.position;
-        float distance = sphereCol.radius + 0.7f;   // generous for testing
-
-        // Visual debug ray (red = not hitting, green = hitting)
-        if (Physics.Raycast(origin, Vector3.down, out hit, distance, DrivableSurface))
-        {
-            Debug.DrawRay(origin, Vector3.down * distance, Color.green);
-            Debug.Log(" Grounded! Distance: " + hit.distance + " | Normal: " + hit.normal);
-            isGrounded = true;
+            Debug.DrawRay(sphereRB.position, Vector3.down * rayLength, Color.green);
             return true;
         }
-        else
-        {
-            Debug.DrawRay(origin, Vector3.down * distance, Color.red);
-            Debug.Log(" Not Grounded");
-            isGrounded = false;
-            return false;
-        }
-
+        Debug.DrawRay(sphereRB.position, Vector3.down * rayLength, Color.red);
+        return false;
     }
 
     void Gravity()
     {
-        sphereRB.AddForce(gravity * Vector3.down, ForceMode.Acceleration);
+        float multiplier = (sphereRB.linearVelocity.y < 0) ? 2.0f : 1.0f;
+        sphereRB.AddForce(Vector3.up * gravity * multiplier, ForceMode.Acceleration);
     }
 
     void BikeTilt()
     {
-        float xRot = (Quaternion.FromToRotation(bikeBody.transform.up, hit.normal) *bikeBody.transform.rotation).eulerAngles.x;
-        float zRot = -zTiltAngle * steerInput * Mathf.Abs(currentVelocityOffset);
-        
+        if (isGrounded)
+        {
+            // 1. Calculamos la inclinaci�n frontal (X) basada en la rampa
+            // Usamos transform.InverseTransformDirection para que la inclinaci�n sea relativa a la moto
+            Vector3 localNormal = transform.InverseTransformDirection(hit.normal);
+            float xRot = Mathf.Atan2(localNormal.z, localNormal.y) * Mathf.Rad2Deg;
 
-        Quaternion targetRot = Quaternion.Slerp(bikeBody.transform.rotation, Quaternion.Euler(xRot, transform.eulerAngles.y, zRot), bikeTiltIncrement);
+            // 2. Calculamos la inclinaci�n lateral (Z)
+            // Multiplicamos por currentVelocityOffset para que no se incline si est� parada
+            float zRot = -zTiltAngle * steerInput * currentVelocityOffset;
 
-        //Quaternion newRotation = Quaternion.Euler(xRot, transform.eulerAngles.y, transform.eulerAngles.z);
-        Quaternion newRotation = Quaternion.Euler(targetRot.eulerAngles.x, transform.eulerAngles.y, targetRot.eulerAngles.z);
-        bikeBody.MoveRotation(newRotation);
+            // 3. Creamos la rotaci�n local objetivo
+            // Mantenemos Y en 0 porque el padre (PlayerBike) ya maneja la direcci�n
+            Quaternion targetLocalRot = Quaternion.Euler(xRot, 0, zRot);
+
+            // 4. Aplicamos el Slerp (Aumenta bikeTiltIncrement en el inspector para m�s respuesta)
+            bikeBody.transform.localRotation = Quaternion.Slerp(bikeBody.transform.localRotation, targetLocalRot, bikeTiltIncrement);
+        }
+        else
+        {
+            // En el aire, regresamos a la posici�n neutral r�pido para aterrizar bien
+            bikeBody.transform.localRotation = Quaternion.Slerp(bikeBody.transform.localRotation, Quaternion.identity, Time.deltaTime * 5f);
+        }
     }
 }
-
-/*
- * old code
- * public class PlayerController : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    GameObject Player;
-    Rigidbody rb;
-    public InputActionAsset InputActions;
-
-    private InputAction m_moveAction;
-    private InputAction m_lookAction;
-    private InputAction m_jumpAction;
-    private InputAction m_attackAction;
-
-    private Vector2 m_moveAmt;
-    private Vector2 m_lookAmt; // might not be needed
-
-    private int speedUpgrades;
-    [SerializeField] private float movementSpeed;
-    [SerializeField] private bool isGrounded;
-    [SerializeField] private float jumpForce;
-    [SerializeField] private float rotateSpeed;
-
-    private void OnEnable()
-    {
-        InputActions.FindActionMap("Player").Enable();
-    }
-
-    private void OnDisable()
-    {
-        InputActions.FindActionMap("Player").Disable();
-    }
-    private void Awake()
-    {
-        if (rb == null)
-        {
-            rb = GetComponent<Rigidbody>();
-            Debug.Log("MissingPlayerFound");
-        }
-        m_moveAction = InputSystem.actions.FindAction("Move");
-        m_lookAction = InputSystem.actions.FindAction("Look");
-        m_jumpAction = InputSystem.actions.FindAction("Jump");
-        m_attackAction = InputSystem.actions.FindAction("Attack");
-    }
-    void Start()
-    {
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        m_moveAmt = m_moveAction.ReadValue<Vector2>();
-        m_lookAmt = m_lookAction.ReadValue<Vector2>();
-
-        if (m_jumpAction.WasPressedThisFrame())
-        {
-            Jump();
-        }
-        if (m_attackAction.WasCompletedThisFrame())
-        {
-            Attack();
-        }
-    }
-
-    public void FixedUpdate()
-    {
-        Moving();
-        Rotating();
-    }
-
-    private void Moving()
-    {
-        rb.MovePosition(rb.position + transform.forward * m_moveAmt.y * movementSpeed * Time.deltaTime);
-        //rb.MovePosition(rb.position + transform.right * m_moveAmt.x * movementSpeed * Time.deltaTime);
-    }
-
-    private void Rotating()
-    {
-        float rotationAmount = m_lookAmt.x * rotateSpeed * Time.deltaTime;
-        Quaternion deltaRotation = Quaternion.Euler(0, rotationAmount, 0);
-        rb.MoveRotation(rb.rotation * deltaRotation);
-        //rb.transform.Rotate(new Vector3(0, rotationAmount, 0));
-    }
-
-    public void Attack()
-    {
-        Debug.Log("Pewpew");
-    }
-    public void Jump()
-    {
-        if (isGrounded == true)
-        {
-            //rb.AddForceAtPosition(new Vector3(0f, 5f, 0f), Vector3.up, ForceMode.Impulse);
-            rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
-            Debug.Log("Jumped");
-        }
-;
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-            Debug.Log("Grounded");
-        }
-    }
-    private void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-            Debug.Log("NotGrounded");
-        }
-    }
-}*/
-
