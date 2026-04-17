@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     private float maxSpeed;
     [SerializeField]
     private float acceleration;
+    [SerializeField]
+    private float reverseSpeed;
 
     [Header("Steering")]
     [SerializeField]
@@ -66,9 +68,10 @@ public class PlayerController : MonoBehaviour
         steerInput = Input.GetAxis("Horizontal");
         transform.position = sphereRB.transform.position;
 
-        currentVelocity = bikeBody.transform.InverseTransformDirection(bikeBody.linearVelocity);
-        currentVelocityOffset = currentVelocity.z / maxSpeed;
-        //bikeBody.MoveRotation(transform.rotation);
+        currentVelocity = bikeBody.transform.InverseTransformDirection(sphereRB.linearVelocity);
+
+        float speedReference = currentVelocity.z >= 0 ? maxSpeed : reverseSpeed;
+        currentVelocityOffset = Mathf.Clamp(currentVelocity.z / speedReference, -1f, 1f);
 
     }
 
@@ -82,8 +85,20 @@ public class PlayerController : MonoBehaviour
 
     void Acceleration()
     {
-        //change to angularVelocity if it doesnt work
-        sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, moveInput * maxSpeed * transform.forward, Time.fixedDeltaTime * acceleration);
+        float targetSpeed = 0f;
+
+        if (moveInput > 0)
+            targetSpeed = maxSpeed;
+        else if (moveInput < 0)
+            targetSpeed = reverseSpeed;
+
+        Vector3 targetVelocity = transform.forward * moveInput * targetSpeed;
+
+        sphereRB.linearVelocity = Vector3.Lerp(
+            sphereRB.linearVelocity,
+            targetVelocity,
+            Time.fixedDeltaTime * acceleration
+        );
     }
 
     void Movement()
@@ -163,12 +178,7 @@ public class PlayerController : MonoBehaviour
     void BikeTilt()
     {
         float xRot = (Quaternion.FromToRotation(bikeBody.transform.up, hit.normal) *bikeBody.transform.rotation).eulerAngles.x;
-        float zRot = 0;
-
-        if (currentVelocityOffset > 0)
-        {
-            zRot = -zTiltAngle * steerInput * currentVelocityOffset;
-        }
+        float zRot = -zTiltAngle * steerInput * Mathf.Abs(currentVelocityOffset);
         
 
         Quaternion targetRot = Quaternion.Slerp(bikeBody.transform.rotation, Quaternion.Euler(xRot, transform.eulerAngles.y, zRot), bikeTiltIncrement);
