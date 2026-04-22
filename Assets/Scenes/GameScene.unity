@@ -15743,7 +15743,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1894082423742948872, guid: 01033c583c97cec498a1a656a303028c, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1687258585}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01033c583c97cec498a1a656a303028c, type: 3}
 --- !u!1001 &1028495283
@@ -22740,6 +22743,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1562275218897716241, guid: bc399397c5ca7bb46911ca623d3fcf50, type: 3}
+--- !u!4 &1413399868 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1894082423742948872, guid: 01033c583c97cec498a1a656a303028c, type: 3}
+  m_PrefabInstance: {fileID: 1017549939}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1424301996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27881,7 +27889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1687258582
 AudioListener:
   m_ObjectHideFlags: 0
@@ -27949,13 +27957,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000000330648, y: -0.99144495, z: -0.13052596, w: -0.00000025115256}
-  m_LocalPosition: {x: 0, y: 1.5, z: 50}
+  m_LocalRotation: {x: -0.11789704, y: 0.00000023525185, z: 0.00000009395464, w: -0.99302584}
+  m_LocalPosition: {x: 0, y: 5.37, z: -8.800003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -15, y: -180, z: 0}
+  m_Father: {fileID: 1413399868}
+  m_LocalEulerAnglesHint: {x: 13.542, y: 0, z: 0}
 --- !u!114 &1687258586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35936,7 +35944,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1687258585}
   - {fileID: 1044716451}
   - {fileID: 653260038}
   - {fileID: 1508556157}
