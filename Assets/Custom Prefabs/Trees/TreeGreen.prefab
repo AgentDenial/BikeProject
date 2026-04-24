@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9100339370652304327}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TreeGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,6 +44,10 @@ PrefabInstance:
     - target: {fileID: 2377396393076398870, guid: cb4b384752d8169459f6d2d45e6a3e29, type: 3}
       propertyPath: m_Name
       value: TreeStandGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377396393076398870, guid: cb4b384752d8169459f6d2d45e6a3e29, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3149676131258286508, guid: cb4b384752d8169459f6d2d45e6a3e29, type: 3}
       propertyPath: m_LocalScale.x
@@ -122,6 +126,10 @@ PrefabInstance:
     - target: {fileID: 2701127862595042550, guid: be6f14ca227eff34d902e8a38a61226a, type: 3}
       propertyPath: m_Name
       value: TreeGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2701127862595042550, guid: be6f14ca227eff34d902e8a38a61226a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3330277604913800780, guid: be6f14ca227eff34d902e8a38a61226a, type: 3}
       propertyPath: m_LocalPosition.x
