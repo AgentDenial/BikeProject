@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 5964630238652671964}
   m_Layer: 0
   m_Name: PlayerBike_GRP
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -493,16 +493,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
-  maxHealth: 10
-  currentHealth: 0
-  damageReceived: 5
   maxSpeed: 52.4
   acceleration: 10
+  steerStrenght: 205.4
+  tiltAngle: 0
   gravity: 60
+  bikeXTiltIncrement: 0.9
+  zTiltAngle: 45
+  handleRotVal: 30
+  handleRotSpeed: 0.15
+  skidWidth: 0.062
+  minSkidVelocity: 10
+  tyreRotSpeed: 752
+  norDrag: 2
+  driftDrag: 0.5
+  sphereRB: {fileID: 326831714490090899}
+  BikeBody: {fileID: 845736036340985961}
+  Handle: {fileID: 7792079376521466309}
+  FrontTyre: {fileID: 2360416097045880363}
+  BackTyre: {fileID: 1456905222874103773}
+  skidMarks: {fileID: 4538702353158663365}
+  breakingFactor: 9.5
   DrivableSurface:
     serializedVersion: 2
     m_Bits: 1024
-  steerStrenght: 205.4
   turningCurve:
     serializedVersion: 2
     m_Curve:
@@ -527,23 +541,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  handleRotVal: 30
-  handleRotSpeed: 0.15
-  norDrag: 2
-  driftDrag: 0.5
-  breakingFactor: 9.5
-  tiltAngle: 0
-  zTiltAngle: 45
-  bikeXTiltIncrement: 0.9
-  tyreRotSpeed: 752
-  skidWidth: 0.062
-  minSkidVelocity: 10
-  skidMarks: {fileID: 4538702353158663365}
-  sphereRB: {fileID: 326831714490090899}
-  BikeBody: {fileID: 845736036340985961}
-  Handle: {fileID: 7792079376521466309}
-  FrontTyre: {fileID: 2360416097045880363}
-  BackTyre: {fileID: 1456905222874103773}
 --- !u!1001 &3229250069621793383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -625,9 +622,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ac84164fbb231d04fbe9f118e6689068, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3315798028307180214}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ac84164fbb231d04fbe9f118e6689068, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3947279046119879220}
   m_SourcePrefab: {fileID: 100100000, guid: ac84164fbb231d04fbe9f118e6689068, type: 3}
 --- !u!1 &1456905222874103773 stripped
 GameObject:
@@ -703,19 +697,6 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &3947279046119879220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2310891991820099382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0a36782308ee914a8e6601bd201f42e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerBikeGroup: {fileID: 5964630238652671964}
 --- !u!1 &2360416097045880363 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 869608398130183244, guid: ac84164fbb231d04fbe9f118e6689068, type: 3}

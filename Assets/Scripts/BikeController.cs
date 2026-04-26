@@ -1,68 +1,29 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
 
 public class BikeController : MonoBehaviour
 {
-    // --- Private / Internal ---
     RaycastHit hit;
     float moveInput, steerInput, rayLenght, currentVelocityOffset;
+
     [HideInInspector] public Vector3 velocity;
 
-    [Header("Player Health")]
-    public float maxHealth = 100f;
-    public float currentHealth;
-    public float damageReceived = 5f;
-
-    [Header("Main Physics Settings")]
-    public float maxSpeed;
-    public float acceleration;
-    public float gravity;
-    public float maxReverseSpeed = 20f;
-    public LayerMask DrivableSurface;
-
-    [Header("Steering & Handling")]
-    public float steerStrenght;
-    public AnimationCurve turningCurve;
-    public float handleRotVal = 30f;
-    public float handleRotSpeed = .15f;
-
-    [Header("Drift & Traction")]
-    public float norDrag = 2f;
-    public float driftDrag = 0.5f;
-    [Range(1, 10)]
-    public float breakingFactor;
-
-    [Header("Turbo settings")]
-    private float originalMaxSpeed;
-    private bool isTurboActive = false; 
-
-    [Header("Bike Tilt Settings")]
-    public float tiltAngle;
-    public float zTiltAngle = 45f;
-    [Tooltip("Smoooth Rx")]
-    public float bikeXTiltIncrement = .9f;
-
-    [Header("Visuals & Tyres")]
-    public float tyreRotSpeed = 10000f;
-    public float skidWidth = .062f;
-    public float minSkidVelocity = 10f;
-    public TrailRenderer skidMarks;
-
-    [Header("Scene References")]
-    public Rigidbody sphereRB;
-    public Rigidbody BikeBody;
+    public float maxSpeed, maxReverseSpeed = 20f, acceleration, steerStrenght, tiltAngle, gravity, bikeXTiltIncrement = .9f, zTiltAngle = 45f, handleRotVal = 30f , handleRotSpeed = .15f ;
+    public float skidWidth = .062f, minSkidVelocity = 10f, tyreRotSpeed = 10000f;
+    public float norDrag = 2f, driftDrag = 0.5f; 
+    public Rigidbody sphereRB, BikeBody;
     public GameObject Handle;
     public GameObject FrontTyre;
     public GameObject BackTyre;
-
-    private Vector3 airVelocity;
+    public TrailRenderer skidMarks;
+   [ Range(1,10)]
+    public float breakingFactor;
+    public LayerMask DrivableSurface;
+    public AnimationCurve turningCurve;
 
     void Start()
     {
-        originalMaxSpeed = maxSpeed;
-        currentHealth = maxHealth;
 
         sphereRB.transform.parent = null;
         BikeBody.transform.parent = null;
@@ -107,12 +68,10 @@ public class BikeController : MonoBehaviour
             }
             Rotation();
             Break();
-            airVelocity = sphereRB.linearVelocity;
         }
         else
         {
             Gravity();
-            sphereRB.linearVelocity = new Vector3(airVelocity.x, sphereRB.linearVelocity.y, airVelocity.z);
 
         }
         BikeTilt();
@@ -129,16 +88,12 @@ public class BikeController : MonoBehaviour
             targetVelocity,
             Time.fixedDeltaTime * acceleration
         );
-
-        //Saul's Code
-        // sphereRB.linearVelocity = Vector3.Lerp(sphereRB.linearVelocity, maxSpeed * moveInput * transform.forward, Time.fixedDeltaTime * acceleration); 
     }
 
     void Rotation()
     {
-
-            transform.Rotate(0, steerInput * moveInput * turningCurve.Evaluate(Mathf.Abs(currentVelocityOffset)) * steerStrenght * Time.fixedDeltaTime, 0, Space.World);
-            Handle.transform.localRotation = Quaternion.Slerp(Handle.transform.localRotation, Quaternion.Euler(Handle.transform.localRotation.eulerAngles.x, handleRotVal * steerInput, Handle.transform.localRotation.eulerAngles.z), handleRotSpeed);
+        transform.Rotate(0,steerInput * moveInput * turningCurve.Evaluate(Mathf.Abs(currentVelocityOffset)) * steerStrenght *Time.fixedDeltaTime,0 , Space.World);
+        Handle.transform.localRotation = Quaternion.Slerp(Handle.transform.localRotation, Quaternion.Euler(Handle.transform.localRotation.eulerAngles.x, handleRotVal * steerInput, Handle.transform.localRotation.eulerAngles.z), handleRotSpeed); 
 
     }
 
@@ -201,42 +156,6 @@ public class BikeController : MonoBehaviour
         else
         {
             skidMarks.emitting = false;
-        }
-    }
-
-    public void ApplyTurbo(float boost)
-    {
-        Debug.Log("Detect");
-        StartCoroutine(TurboRoutine(boost));
-    }
-
-    IEnumerator TurboRoutine(float boost)
-    {
-        isTurboActive = true;
-        maxSpeed += boost;
-        yield return new WaitForSeconds(maxSpeed);
-        maxSpeed = originalMaxSpeed;
-        isTurboActive = false;
-    }
-
-    public void HandleCollision(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("Damage taken: " + currentHealth);
-            TakeDamage(5);
-        }
-    }
-
-    private void TakeDamage(float damageAmount)
-    {
-        currentHealth -= damageAmount;
-        Debug.Log("Life left: " + currentHealth);
-
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-            //gameOverScene
         }
     }
 }
