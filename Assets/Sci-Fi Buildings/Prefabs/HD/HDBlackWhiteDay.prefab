@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 4010864137575091086}
   - component: {fileID: 1174741206166716228}
   - component: {fileID: 7387912344449149962}
+  - component: {fileID: 7126572712289857039}
   m_Layer: 8
   m_Name: HDBlackWhiteDay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1873823440520235
 Transform:
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5566942388758090718, guid: 147e375c34ce2bd40ac72f33cb199323, type: 3}
+--- !u!208 &7126572712289857039
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814439698066513553}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 75.85, y: 2.5, z: 50.75}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: -11.37, y: -120.4, z: 26.42}
+  m_TimeToStationary: 0.5

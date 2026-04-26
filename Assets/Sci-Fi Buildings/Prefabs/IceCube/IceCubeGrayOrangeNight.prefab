@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 3488538525331101865}
   - component: {fileID: 1697065444058393699}
   - component: {fileID: 7666126761996433853}
+  - component: {fileID: -8301059055460847985}
   m_Layer: 8
   m_Name: IceCubeGrayOrangeNight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &560166930672981772
 Transform:
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1015071799946639904, guid: 107819da1977e5d40a41fac99844b9b7, type: 3}
+--- !u!208 &-8301059055460847985
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904603914314141110}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 79.4, y: 2.5, z: 46.55}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -79.6, z: -33.4}
+  m_TimeToStationary: 0.5

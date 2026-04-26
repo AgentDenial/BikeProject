@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Ground
   - Police
-  - Enemy
   - PowerUp
   layers:
   - Default
@@ -20,8 +19,8 @@ TagManager:
   - Environment
   - Destructable
   - DrivableSurface
-  - 
-  - 
+  - PoliceWheels
+  - PoliceBody
   - 
   - 
   - 

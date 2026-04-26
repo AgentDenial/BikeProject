@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 1404570291467176631}
   - component: {fileID: 3790621814563487357}
   - component: {fileID: 361804844004571095}
+  - component: {fileID: 9135897888544209003}
   m_Layer: 8
   m_Name: HDGrayBronzeNight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2653133275617871122
 Transform:
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5566942388758090718, guid: 147e375c34ce2bd40ac72f33cb199323, type: 3}
+--- !u!208 &9135897888544209003
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3430056286027816872}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 75.85, y: 2.5, z: 50.75}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: -11.37, y: -120.4, z: 26.42}
+  m_TimeToStationary: 0.5

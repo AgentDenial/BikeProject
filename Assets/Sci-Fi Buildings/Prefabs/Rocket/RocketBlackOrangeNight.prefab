@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 3744312874468736922}
   - component: {fileID: 1446376697479924560}
   - component: {fileID: -4840222329595228963}
+  - component: {fileID: 7673757688294026968}
   m_Layer: 8
   m_Name: RocketBlackOrangeNight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &313461066450235455
 Transform:
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1988216149656743765, guid: f01f90184f04df04bb25c3d6a3dc9442, type: 3}
+--- !u!208 &7673757688294026968
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086057459214068357}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 61.25, y: 2.5, z: 26}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -8.2, y: -71.23, z: 16.2}
+  m_TimeToStationary: 0.5

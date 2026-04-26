@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 2060916082509983304}
   - component: {fileID: 4286634148576451202}
   - component: {fileID: -4340838118159124981}
+  - component: {fileID: -7841831428838535004}
   m_Layer: 8
   m_Name: TowerBlackPinkDay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3113680415532687853
 Transform:
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1277366460620338370, guid: 5be51e165430bf04ab02612c0f622cbb, type: 3}
+--- !u!208 &-7841831428838535004
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341259910250691415}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 30.5, y: 2.5, z: 31.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -119.5, z: 0}
+  m_TimeToStationary: 0.5

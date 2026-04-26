@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 4276444841194616220}
   - component: {fileID: 2070543831608328534}
   - component: {fileID: 5161392487301313163}
+  - component: {fileID: 4429462851704916055}
   m_Layer: 8
   m_Name: ChineseBlackAquaNight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &934251154634439225
 Transform:
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8527453079078007986, guid: 25edaa578588bda44914f50518a533a3, type: 3}
+--- !u!208 &4429462851704916055
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557585252316061827}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 20.5, y: 2.5, z: 20.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -121.3, z: 0}
+  m_TimeToStationary: 0.5

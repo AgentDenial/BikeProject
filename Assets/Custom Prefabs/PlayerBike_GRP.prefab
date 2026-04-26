@@ -496,9 +496,10 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   damageReceived: 5
-  maxSpeed: 52.4
-  acceleration: 10
+  maxSpeed: 52
+  acceleration: 2
   gravity: 60
+  maxReverseSpeed: 20
   DrivableSurface:
     serializedVersion: 2
     m_Bits: 1024

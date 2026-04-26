@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 4328635666265752765}
   - component: {fileID: 2014956752990875767}
   - component: {fileID: 8890411392195642675}
+  - component: {fileID: 1412082414326316127}
   m_Layer: 8
   m_Name: EmpireWhiteRedNight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &846039705091066648
 Transform:
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7679209212284471428, guid: 28687086b9f2fd947bdb7441fe18e9f4, type: 3}
+--- !u!208 &1412082414326316127
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69361649733341602}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 35, y: 2.5, z: 53.792004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -4.29, y: -377.2, z: 0}
+  m_TimeToStationary: 0.5

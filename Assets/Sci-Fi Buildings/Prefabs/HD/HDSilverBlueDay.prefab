@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 7608951679560404125}
   - component: {fileID: 5655565059361847383}
   - component: {fileID: -5122447052939077670}
+  - component: {fileID: -8173457507097325807}
   m_Layer: 8
   m_Name: HDSilverBlueDay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6789095797351793464
 Transform:
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5566942388758090718, guid: 147e375c34ce2bd40ac72f33cb199323, type: 3}
+--- !u!208 &-8173457507097325807
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6159910561089853826}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 75.85, y: 2.5, z: 50.75}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: -11.37, y: -120.4, z: 26.42}
+  m_TimeToStationary: 0.5

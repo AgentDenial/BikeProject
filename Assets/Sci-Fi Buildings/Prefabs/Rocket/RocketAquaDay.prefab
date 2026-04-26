@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 1983573182014419663}
   - component: {fileID: 4351574575627437573}
   - component: {fileID: 8055028407337053434}
+  - component: {fileID: -6606001960393790442}
   m_Layer: 8
   m_Name: RocketAquaDay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3182016174220836202
 Transform:
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1988216149656743765, guid: f01f90184f04df04bb25c3d6a3dc9442, type: 3}
+--- !u!208 &-6606001960393790442
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2838141281854203856}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 61.25, y: 2.5, z: 26}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -8.2, y: -71.23, z: 16.2}
+  m_TimeToStationary: 0.5

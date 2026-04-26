@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 5055577921584165685}
   - component: {fileID: 7047555195794098175}
   - component: {fileID: 7122675593136205137}
+  - component: {fileID: 8461108508662137997}
   m_Layer: 8
   m_Name: MitikoBlackRedNight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8180470692607425680
 Transform:
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4046294695294756131, guid: 168cd54d5755e5642bbdc68bd754308a, type: 3}
+--- !u!208 &8461108508662137997
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8848744701397542442}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 38.165, y: 2.5, z: 90.996}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 1.8010001, y: -260.9, z: 0.002}
+  m_TimeToStationary: 0.5

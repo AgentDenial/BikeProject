@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 4554045639122462395}
   - component: {fileID: 1790127149905039985}
   - component: {fileID: -3408541948057055478}
+  - component: {fileID: 3988807854251679376}
   m_Layer: 8
   m_Name: TowerBlackBronzeDay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &620621486398417182
 Transform:
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1277366460620338370, guid: 5be51e165430bf04ab02612c0f622cbb, type: 3}
+--- !u!208 &3988807854251679376
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276746358351786916}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 30.5, y: 2.5, z: 31.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -119.5, z: 0}
+  m_TimeToStationary: 0.5
