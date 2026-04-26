@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Police
+  - Building
+  - Road
   layers:
   - Default
   - TransparentFX
