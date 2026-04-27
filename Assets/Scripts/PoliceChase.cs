@@ -31,4 +31,6 @@ public class PoliceChase : MonoBehaviour
             agent.SetDestination(player.position);
         }
     }
+
+    //suggestion: reference to BikeController to check player's current max speed and adjust actor speed accordingly?
 }

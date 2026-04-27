@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class PlayerDangerSystem : MonoBehaviour
 {
-    public PlayerController playerController;
+    //public PlayerController playerController;
+    public BikeController bikeController;
     public float dangerRadius = 8f;
-    public float safeSpeed = 10f;
+    //public float safeSpeed = 10f;
     public float baseCaptureRate = 1f;
     public float captureDecayRate = 0.75f;
     public float maxCaptureProgress = 5f;
 
-    public string policeTag = "Police";
+    private float safeSpeed;
+    private float slowDivison = 2f / 5f;
+    
+
+    //public string policeTag = "Police";
     public float currentSpeed;
     public int policeInRange;
     public float captureProgress;
@@ -32,6 +37,7 @@ public class PlayerDangerSystem : MonoBehaviour
 
         if (captureProgress >= maxCaptureProgress)
         {
+            isGameOver = true;
             TriggerGameOver();
         }
     }
@@ -44,11 +50,27 @@ public class PlayerDangerSystem : MonoBehaviour
         lastPosition = transform.position;
     }
 
-    void CountPoliceInRange()
+    /*void CountPoliceInRange()
     {
         policeInRange = 0;
 
         GameObject[] policeObjects = GameObject.FindGameObjectsWithTag(policeTag);
+
+        foreach (GameObject police in policeObjects)
+        {
+            float distance = Vector3.Distance(transform.position, police.transform.position);
+
+            if (distance <= dangerRadius)
+            {
+                policeInRange++;
+            }
+        }
+    }*/
+    void CountPoliceInRange()
+    {
+        policeInRange = 0;
+
+        GameObject[] policeObjects = GameObject.FindGameObjectsWithTag("Police");
 
         foreach (GameObject police in policeObjects)
         {
@@ -64,7 +86,19 @@ public class PlayerDangerSystem : MonoBehaviour
     void UpdateCaptureProgress()
     {
         bool inDanger = policeInRange > 0;
+        //added line
+        safeSpeed = bikeController.maxSpeed * slowDivison;
         bool isSlow = currentSpeed < safeSpeed;
+
+        //added for testing
+        if (isSlow)
+        {
+            Debug.Log($"Too slow, current speed {currentSpeed:F1}, target {safeSpeed:F1}");
+        }
+        else
+        {
+            Debug.Log($"Fast Enough, current speed {currentSpeed:F1}");
+        }
 
         if (inDanger && isSlow)
         {
@@ -77,15 +111,32 @@ public class PlayerDangerSystem : MonoBehaviour
         }
 
         captureProgress = Mathf.Clamp(captureProgress, 0f, maxCaptureProgress);
+        //Debug.Log($"{captureProgress}");
     }
 
-    void TriggerGameOver()
+    /*void TriggerGameOver()
     {
         isGameOver = true;
         Debug.Log("GAME OVER");
 
         // Game over
         Time.timeScale = 0f;
+    }*/
+    void TriggerGameOver()
+    {
+        if (isGameOver == true)
+        {
+            Debug.Log("GAME OVER");
+
+            // Game over
+
+            //could be reused for pause menu?
+            Time.timeScale = 0f;
+
+            //Scene Manager method to game over
+
+        }
+       
     }
 
     void OnDrawGizmosSelected()

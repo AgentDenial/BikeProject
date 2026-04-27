@@ -39,8 +39,8 @@ public class Speedometer : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Space))
         {
-            float breakSoeed = 100f;
-            speed -= breakSoeed * Time.deltaTime;
+            float breakSpeed = 100f;
+            speed -= breakSpeed * Time.deltaTime;
         }
 
         speed = Math.Clamp(speed, 0f, speedMax);
