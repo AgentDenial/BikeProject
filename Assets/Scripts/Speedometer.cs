@@ -9,7 +9,8 @@ public class Speedometer : MonoBehaviour
     private Transform needleTransform;
 
     private float speedMax;
-    private float speed;
+    //private float speed; //changed to public for testing
+    public float speed;
 
     private void Awake()
     {

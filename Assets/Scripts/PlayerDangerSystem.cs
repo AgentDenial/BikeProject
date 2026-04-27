@@ -4,6 +4,9 @@ public class PlayerDangerSystem : MonoBehaviour
 {
     //public PlayerController playerController;
     public BikeController bikeController;
+    public PoliceMegaphone policeMegaphone;
+    public BGMManager bgmManager;
+
     public float dangerRadius = 8f;
     //public float safeSpeed = 10f;
     public float baseCaptureRate = 1f;
@@ -25,6 +28,7 @@ public class PlayerDangerSystem : MonoBehaviour
     void Start()
     {
         lastPosition = transform.position;
+        policeMegaphone = FindAnyObjectByType<PoliceMegaphone>();
     }
 
     void Update()
@@ -79,6 +83,7 @@ public class PlayerDangerSystem : MonoBehaviour
             if (distance <= dangerRadius)
             {
                 policeInRange++;
+                policeMegaphone.PlayRandomMegaphone();
             }
         }
     }
@@ -126,6 +131,7 @@ public class PlayerDangerSystem : MonoBehaviour
     {
         if (isGameOver == true)
         {
+            bgmManager.PlayGameOverMusic();
             Debug.Log("GAME OVER");
 
             // Game over

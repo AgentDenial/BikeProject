@@ -21,6 +21,7 @@ public class BikeController : MonoBehaviour
     public float gravity;
     public float maxReverseSpeed = 20f;
     public LayerMask DrivableSurface;
+    public LayerMask OutOfBounds;
 
     [Header("Steering & Handling")]
     public float steerStrength;
@@ -58,6 +59,8 @@ public class BikeController : MonoBehaviour
     public GameObject BackTire;
 
     private Vector3 airVelocity;
+
+    public BGMManager bgmManager;
 
     void Start()
     {
@@ -218,6 +221,19 @@ public class BikeController : MonoBehaviour
         yield return new WaitForSeconds(maxSpeed);
         maxSpeed = originalMaxSpeed;
         isTurboActive = false;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("OutOfBounds"))
+        {
+            Debug.Log("Fell out of bounds");
+            bgmManager.PlayGameOverMusic();
+            //gameOver Logic
+            Destroy(gameObject);
+            Time.timeScale = 0f;
+            //gameOverSceneTransition
+        }
     }
 
     /*public void HandleCollision(Collision collision)
