@@ -70,7 +70,7 @@ Material:
     - BOOLEAN_GLITCHYMOON: 1
     - BOOLEAN_PREVENTSTARS: 1
     - Vector1_7d421ef4d57f45e586330be25bfb5941: 10
-    - Vector1_a770b768a8ca40a9b814a01444e6b850: 2
+    - Vector1_a770b768a8ca40a9b814a01444e6b850: 2.99
     - _AddPrecomputedVelocity: 0
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 0
@@ -89,10 +89,10 @@ Material:
     - _DstBlend: 0
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
-    - _FogContrast: 30
-    - _FogHeight: 1
-    - _FogPower: 1
-    - _HorizonHeight: 0.43
+    - _FogContrast: 79.3
+    - _FogHeight: -10
+    - _FogPower: 0.08
+    - _HorizonHeight: 0.504
     - _HorizonStrength: 1
     - _LinesMaskPower: 50
     - _LinesSpeed: 1
@@ -103,8 +103,8 @@ Material:
     - _QueueOffset: 0
     - _RenderQueueType: 1
     - _SrcBlend: 1
-    - _StarDensity: 15
-    - _StarSize: 100
+    - _StarDensity: 27.01
+    - _StarSize: 52.9
     - _StencilRef: 0
     - _StencilRefDepth: 0
     - _StencilRefDistortionVec: 4
@@ -115,9 +115,9 @@ Material:
     - _StencilWriteMaskDistortionVec: 4
     - _StencilWriteMaskGBuffer: 14
     - _StencilWriteMaskMV: 40
-    - _SunMaskSize: 0.05
+    - _SunMaskSize: 0.33
     - _SunMaskSpherize: 14
-    - _SunSize: 0.355
+    - _SunSize: 0.833
     - _SurfaceType: 0
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
@@ -136,11 +136,11 @@ Material:
     - _Cubemap_Color: {r: 1, g: 1, b: 1, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HorizonColor: {r: 0.9150943, g: 0.45614085, b: 0.31510323, a: 1}
+    - _HorizonColor: {r: 1, g: 0.48235294, b: 0, a: 1}
     - _LinesColor: {r: 0.92156863, g: 0.5540544, b: 0, a: 1}
-    - _SkyColor: {r: 0.054901965, g: 0.21568629, b: 0.3019608, a: 1}
+    - _SkyColor: {r: 0.3773585, g: 0, b: 0.27133006, a: 1}
     - _StarColor: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0}
-    - _SunColorOne: {r: 0.9811321, g: 0.77037024, b: 0.15179773, a: 1}
+    - _SunColorOne: {r: 0.7384005, g: 0.8301887, b: 0, a: 1}
     - _SunColorTwo: {r: 1, g: 0.48907876, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
