@@ -22,6 +22,9 @@ public class PlayerDangerSystem : MonoBehaviour
     public int policeInRange;
     public float captureProgress;
 
+    private float lastMegaphoneTime;
+    private float megaphoneCooldown = 10f;
+
     private bool isGameOver = false;
     private Vector3 lastPosition;
 
@@ -83,10 +86,18 @@ public class PlayerDangerSystem : MonoBehaviour
             if (distance <= dangerRadius)
             {
                 policeInRange++;
-                policeMegaphone.PlayRandomMegaphone();
+                
+                if (Time.time - lastMegaphoneTime > megaphoneCooldown)
+                {
+                    policeMegaphone.PlayRandomMegaphone();
+                    lastMegaphoneTime = Time.time;
+                }
+                
             }
         }
     }
+
+    
 
     void UpdateCaptureProgress()
     {
@@ -98,11 +109,11 @@ public class PlayerDangerSystem : MonoBehaviour
         //added for testing
         if (isSlow)
         {
-            Debug.Log($"Too slow, current speed {currentSpeed:F1}, target {safeSpeed:F1}");
+            //Debug.Log($"Too slow, current speed {currentSpeed:F1}, target {safeSpeed:F1}");
         }
         else
         {
-            Debug.Log($"Fast Enough, current speed {currentSpeed:F1}");
+            //Debug.Log($"Fast Enough, current speed {currentSpeed:F1}");
         }
 
         if (inDanger && isSlow)

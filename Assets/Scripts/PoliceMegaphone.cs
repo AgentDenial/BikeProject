@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class PoliceMegaphone : MonoBehaviour
@@ -13,26 +14,32 @@ public class PoliceMegaphone : MonoBehaviour
         if (choice == 0)
         {
             PoliceMegaphonePlayer.PlayOneShot(Megaphone1);
+            Debug.Log("Megaphone1");
         }
         if (choice == 1)
         {
             PoliceMegaphonePlayer.PlayOneShot(Megaphone2);
+            Debug.Log("Megaphone2");
         }
         if (choice == 2)
         {
             PoliceMegaphonePlayer.PlayOneShot(Megaphone3);
+            Debug.Log("Megaphone3");
         }
         if (choice == 3)
         {
             PoliceMegaphonePlayer.PlayOneShot(Megaphone4);
+            Debug.Log("Megaphone4");
         }
         if (choice == 4)
         {
             PoliceMegaphonePlayer.PlayOneShot(Megaphone5);
+            Debug.Log("Megaphone5");
         }
         else
         {
             PoliceMegaphonePlayer.PlayOneShot(Megaphone6);
+            Debug.Log("Megaphone6");
         }
     }
 
