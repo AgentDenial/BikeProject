@@ -22,8 +22,10 @@ public class PlayerDangerSystem : MonoBehaviour
     public int policeInRange;
     public float captureProgress;
 
-    private float lastMegaphoneTime;
-    private float megaphoneCooldown = 10f;
+    //private float lastMegaphoneTime;
+    //private float megaphoneCooldown = 10f;
+    private int previousPoliceInRange = 0;
+
 
     private bool isGameOver = false;
     private Vector3 lastPosition;
@@ -41,6 +43,7 @@ public class PlayerDangerSystem : MonoBehaviour
         UpdateSpeed();
         CountPoliceInRange();
         UpdateCaptureProgress();
+        CheckNewPoliceInRange();
 
         if (captureProgress >= maxCaptureProgress)
         {
@@ -87,18 +90,20 @@ public class PlayerDangerSystem : MonoBehaviour
             {
                 policeInRange++;
                 
-                if (Time.time - lastMegaphoneTime > megaphoneCooldown)
-                {
-                    policeMegaphone.PlayRandomMegaphone();
-                    lastMegaphoneTime = Time.time;
-                }
-                
             }
-        }
+        } 
     }
 
-    
+    void CheckNewPoliceInRange()
+    {
+        if (policeInRange > previousPoliceInRange)
+        {
+            policeMegaphone.PlayRandomMegaphone();
+        }
 
+        previousPoliceInRange = policeInRange;
+    }
+    
     void UpdateCaptureProgress()
     {
         bool inDanger = policeInRange > 0;
