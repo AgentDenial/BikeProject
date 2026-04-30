@@ -11,7 +11,7 @@ public class PoliceSpawner : MonoBehaviour
     public float maxDistance = 40f;
     public float navMeshSearchRadius = 10f;
 
-    public float spawnInterval = 5f;
+    public float spawnInterval;
 
     void Start()
     {
