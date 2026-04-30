@@ -8,8 +8,8 @@ public class EngineSounds : MonoBehaviour
     AudioSource audioSource;
     
    //min, max and current pitch based on speed
-    public float minRevPitch = .25f;
-    public float maxRevPitch = 2f;
+    public float minRevPitch = .1f;
+    public float maxRevPitch = 3f;
     public float currentPlayerSpeed;
 
     //reference to speedometer?
@@ -25,7 +25,7 @@ public class EngineSounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentPlayerSpeed = speedometer.speed * 0.015f; //reference to speedometer
+        currentPlayerSpeed = speedometer.speed * 0.01f; //reference to speedometer
         //caps min and max so audio does not get distorted
 
         if (currentPlayerSpeed < minRevPitch)

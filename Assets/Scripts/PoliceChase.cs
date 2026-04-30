@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class PoliceChase : MonoBehaviour
 {
     public Transform player;
-    public float stopDistance = 2f;
+    public float stopDistance;
 
     private NavMeshAgent agent;
 

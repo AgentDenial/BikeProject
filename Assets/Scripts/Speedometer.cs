@@ -16,7 +16,7 @@ public class Speedometer : MonoBehaviour
     {
         needleTransform = transform.Find("Needle");
         speed = 0f;
-        speedMax = 200f;
+        speedMax = 300f;
     }
 
     private void Update()
@@ -29,7 +29,7 @@ public class Speedometer : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            float acceleration = 50f;
+            float acceleration = 30f;
             speed += acceleration * Time.deltaTime;
         }
         else
