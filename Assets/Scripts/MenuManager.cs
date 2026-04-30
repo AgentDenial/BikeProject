@@ -28,6 +28,11 @@ public class MenuManager : MonoBehaviour
         // Loads the scene at index 1 in Build Settings
         SceneManager.LoadScene(4);
     }
+    public void YouWin()
+    {
+        // Loads the scene at index 1 in Build Settings
+        SceneManager.LoadScene(5);
+    }
     public void Quit()
     {
         // Loads the scene at index 1 in Build Settings

@@ -17,8 +17,15 @@ public class PowerUpTurbo : MonoBehaviour
 
         if (bike != null)
         {
+            EndgameController endGameController = Object.FindFirstObjectByType<EndgameController>();
+
+            if (endGameController != null)
+            {
+                endGameController.AddPowerUp(); // Le sumamos 1 al contador global
+            }
+
             bike.ApplyTurbo(speedBoost);
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
     }
 }
