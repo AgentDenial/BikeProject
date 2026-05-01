@@ -61,6 +61,7 @@ public class BikeController : MonoBehaviour
     private Vector3 airVelocity;
 
     public BGMManager bgmManager;
+    public MenuManager menuManager;
 
     void Start()
     {
@@ -228,10 +229,9 @@ public class BikeController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("OutOfBounds"))
         {
             Debug.Log("Fell out of bounds");
-            bgmManager.PlayGameOverMusic();
+            menuManager.GameOver();
+            bgmManager.PlayYouLoseMusic();
             //gameOver Logic
-            Destroy(gameObject);
-            Time.timeScale = 0f;
             //gameOverSceneTransition
         }
     }

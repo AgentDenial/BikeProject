@@ -6,6 +6,7 @@ public class PlayerDangerSystem : MonoBehaviour
     public BikeController bikeController;
     public PoliceMegaphone policeMegaphone;
     public BGMManager bgmManager;
+    public MenuManager menuManager;
 
     public float dangerRadius = 8f;
     //public float safeSpeed = 10f;
@@ -147,15 +148,11 @@ public class PlayerDangerSystem : MonoBehaviour
     {
         if (isGameOver == true)
         {
-            bgmManager.PlayGameOverMusic();
+            
             Debug.Log("GAME OVER");
 
-            // Game over
-
-            //could be reused for pause menu?
-            Time.timeScale = 0f;
-
-            //Scene Manager method to game over
+            menuManager.GameOver();
+            bgmManager.PlayGameOverMusic();
 
         }
        

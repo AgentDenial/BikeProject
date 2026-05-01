@@ -55,11 +55,12 @@ public class BGMManager : MonoBehaviour
             case "GameScene":
                 newClip = gameMusic;
                 break;
-            case "EndScene":
+            case "GameOver":
                 newClip = endMusic;
                 break;
-            /*case "GameOverScene":
-                newClip = gameOverMusic;*/
+            case "YouLose":
+                newClip = gameOverMusic;
+                break;
 
         }
 
@@ -87,7 +88,7 @@ public class BGMManager : MonoBehaviour
             bgmSource.Play();
         }
     }
-    public void PlayGameOverMusic()
+    public void PlayYouLoseMusic()
     {
         if (bgmSource.clip != gameOverMusic)
         {
@@ -97,7 +98,7 @@ public class BGMManager : MonoBehaviour
 
     }
 
-    public void PlayEndMusic()
+    public void PlayGameOverMusic()
     {
         if (bgmSource.clip != endMusic)
         {

@@ -8,11 +8,6 @@ public class MenuManager : MonoBehaviour
         // Loads the scene at index 1 in Build Settings
         SceneManager.LoadScene(0);
     }
-    public void GameOver()
-    {
-        // Loads the scene at index 1 in Build Settings
-        SceneManager.LoadScene(3);
-    }
     public void HowToPlay()
     {
         // Loads the scene at index 1 in Build Settings
@@ -23,16 +18,22 @@ public class MenuManager : MonoBehaviour
         // Loads the scene at index 1 in Build Settings
         SceneManager.LoadScene(2);
     }
-    public void Credits()
+
+    public void YouLose()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void GameOver()
     {
         // Loads the scene at index 1 in Build Settings
         SceneManager.LoadScene(4);
     }
-    public void YouWin()
+    public void Credits()
     {
         // Loads the scene at index 1 in Build Settings
         SceneManager.LoadScene(5);
     }
+
     public void Quit()
     {
         // Loads the scene at index 1 in Build Settings
