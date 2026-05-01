@@ -1,35 +1,47 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro; 
 
 public class EndgameController : MonoBehaviour
 {
-    [Header("Victory setup")]
+    [Header("Powerup count")]
     public int totalPowerUpsNeeded = 6;
     public int currentPowerUps = 0;
 
-    [Header("References")]
+    [Header("PutPoweUp CountUI prefab")]
+    public TextMeshProUGUI counterText; 
+
+    [Header("BlockEndingReferences")]
     public GameObject blockPlayer;
     public string winSceneName = "WinnerMenu";
 
-    void Update()
+    void Start()
     {
-        //Counts how may power ups do we have 
-        if (currentPowerUps >= totalPowerUpsNeeded)
-        {
-            if (blockPlayer.activeSelf)
-            {
-                blockPlayer.SetActive(false); //we lift up the blockade                
-            }
-        }
+        UpdateUI(); 
     }
+
     public void AddPowerUp()
     {
         currentPowerUps++;
+        UpdateUI(); 
+
+
+        if (currentPowerUps >= totalPowerUpsNeeded)
+        {
+            if (blockPlayer != null) blockPlayer.SetActive(false);
+        }
+    }
+
+    void UpdateUI()
+    {
+        if (counterText != null)
+        {
+            counterText.text = currentPowerUps + " / " + totalPowerUpsNeeded;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //check sphere tag
         if (other.CompareTag("Player") && currentPowerUps >= totalPowerUpsNeeded)
         {
             SceneManager.LoadScene(winSceneName);
