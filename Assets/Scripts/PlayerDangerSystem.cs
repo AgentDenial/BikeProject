@@ -28,7 +28,7 @@ public class PlayerDangerSystem : MonoBehaviour
     private int previousPoliceInRange = 0;
 
 
-    private bool isGameOver = false;
+    //private bool isGameOver = false;
     private Vector3 lastPosition;
 
     void Start()
@@ -39,18 +39,14 @@ public class PlayerDangerSystem : MonoBehaviour
 
     void Update()
     {
-        if (isGameOver) return;
+        
 
         UpdateSpeed();
         CountPoliceInRange();
         UpdateCaptureProgress();
         CheckNewPoliceInRange();
 
-        if (captureProgress >= maxCaptureProgress)
-        {
-            isGameOver = true;
-            TriggerGameOver();
-        }
+        
     }
 
     void UpdateSpeed()
@@ -104,7 +100,7 @@ public class PlayerDangerSystem : MonoBehaviour
 
         previousPoliceInRange = policeInRange;
     }
-    
+
     void UpdateCaptureProgress()
     {
         bool inDanger = policeInRange > 0;
@@ -133,6 +129,11 @@ public class PlayerDangerSystem : MonoBehaviour
         }
 
         captureProgress = Mathf.Clamp(captureProgress, 0f, maxCaptureProgress);
+
+        if (captureProgress >= maxCaptureProgress)
+        {
+            menuManager.YouLose();
+        }
         //Debug.Log($"{captureProgress}");
     }
 
@@ -144,7 +145,7 @@ public class PlayerDangerSystem : MonoBehaviour
         // Game over
         Time.timeScale = 0f;
     }*/
-    void TriggerGameOver()
+    /*void TriggerGameOver()
     {
         if (isGameOver == true)
         {
@@ -152,11 +153,11 @@ public class PlayerDangerSystem : MonoBehaviour
             Debug.Log("GAME OVER");
 
             menuManager.GameOver();
-            bgmManager.PlayGameOverMusic();
+            //bgmManager.PlayGameOverMusic();
 
         }
        
-    }
+    }*/
 
     void OnDrawGizmosSelected()
     {

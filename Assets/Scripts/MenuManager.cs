@@ -6,7 +6,7 @@ public class MenuManager : MonoBehaviour
     public static MenuManager Instance;
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
@@ -50,6 +50,21 @@ public class MenuManager : MonoBehaviour
     {
         // Loads the scene at index 1 in Build Settings
         Application.Quit();
+    }
+
+    private void LoadScene(int buildIndex)
+    {
+        if (Instance == null)
+        {
+            Instance = FindAnyObjectByType<MenuManager>();
+            if (Instance == null)
+            {
+                Debug.LogError("Menu Manager not found");
+                return;
+            }
+        }
+        Debug.Log($"Loading Scene Index: {buildIndex}");
+        SceneManager.LoadScene(buildIndex);
     }
 }
 

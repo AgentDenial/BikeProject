@@ -17,6 +17,7 @@ public class BikeController : MonoBehaviour
 
     [Header("Main Physics Settings")]
     public float maxSpeed;
+    public float newMaxSpeed;
     public float acceleration;
     public float gravity;
     public float maxReverseSpeed = 20f;
@@ -60,7 +61,7 @@ public class BikeController : MonoBehaviour
 
     private Vector3 airVelocity;
 
-    public BGMManager bgmManager;
+    
     public MenuManager menuManager;
 
     void Start()
@@ -212,18 +213,21 @@ public class BikeController : MonoBehaviour
     public void ApplyTurbo(float boost)
     {
         Debug.Log("Detect");
-        StartCoroutine(TurboRoutine(boost));
+        //StartCoroutine(TurboRoutine(boost));
+        newMaxSpeed = maxSpeed += boost;
+        originalMaxSpeed = newMaxSpeed;
+
     }
 
     //might be outdated due to removal of timer
-    IEnumerator TurboRoutine(float boost)
+    /*IEnumerator TurboRoutine(float boost)
     {
-        isTurboActive = true;
+        //isTurboActive = true;
         maxSpeed += boost;
-        yield return new WaitForSeconds(maxSpeed);
-        maxSpeed = originalMaxSpeed;
-        isTurboActive = false;
-    }
+        //yield return new WaitForSeconds(maxSpeed);
+        //maxSpeed = originalMaxSpeed;
+        //isTurboActive = false;
+    }*/
 
     private void OnCollisionEnter(Collision other)
     {
@@ -245,13 +249,10 @@ public class BikeController : MonoBehaviour
             Debug.Log("C");
         }
 
-        if ((LayerMask.NameToLayer("OutOfBounds") & 1 << other.gameObject.layer) == 1 << other.gameObject.layer)
+        if (1 << other.gameObject.layer == 1 << LayerMask.NameToLayer("OutOfBounds"))
         {
             Debug.Log("Fell out of bounds");
-            menuManager.GameOver();
-            bgmManager.PlayYouLoseMusic();
-            //gameOver Logic
-            //gameOverSceneTransition
+            menuManager.YouLose();
         }
     }
 

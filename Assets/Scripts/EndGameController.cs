@@ -7,16 +7,23 @@ public class EndgameController : MonoBehaviour
     [Header("Powerup count")]
     public int totalPowerUpsNeeded = 6;
     public int currentPowerUps = 0;
+    bool EndGameReady = false;
 
     [Header("PutPoweUp CountUI prefab")]
     public TextMeshProUGUI counterText; 
 
     [Header("BlockEndingReferences")]
     public GameObject blockPlayer;
-    public string winSceneName = "WinnerMenu";
+    
+    public MenuManager menuManager;
 
     void Start()
     {
+        menuManager = MenuManager.Instance;
+        if (menuManager == null)
+        {
+            menuManager = FindAnyObjectByType<MenuManager>();
+        }
         UpdateUI(); 
     }
 
@@ -28,6 +35,8 @@ public class EndgameController : MonoBehaviour
 
         if (currentPowerUps >= totalPowerUpsNeeded)
         {
+            EndGameReady = true;
+            Debug.Log("EndGameReady");
             if (blockPlayer != null) blockPlayer.SetActive(false);
         }
     }
@@ -36,15 +45,31 @@ public class EndgameController : MonoBehaviour
     {
         if (counterText != null)
         {
-            counterText.text = currentPowerUps + " / " + totalPowerUpsNeeded;
+            counterText.text = $"{currentPowerUps} / {totalPowerUpsNeeded}";
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && currentPowerUps >= totalPowerUpsNeeded)
+        Debug.Log($"trigger called. collided with {other.gameObject.name} with {other.tag} tag");
+        if (other.CompareTag("Player") && EndGameReady == true)
         {
-            SceneManager.LoadScene(winSceneName);
+            Debug.Log("player entered, game is ready");
+            if (menuManager != null)
+            {
+                menuManager.GameOver();
+            }
+            else
+            {
+                Debug.LogError("MenuManager is null");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+            }
+
+
+        }
+        else if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player entered, endgame is still false");
         }
     }
 }
