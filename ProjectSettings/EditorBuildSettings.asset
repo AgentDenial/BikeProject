@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: a128fd1335c33944db853b84cb1d659d
@@ -18,11 +15,17 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene.unity
     guid: 6cc1813cd1acc3f4d8dde0dba4488cf7
   - enabled: 1
+    path: Assets/Scenes/YouLose.unity
+    guid: 7f5118de60ddcd24887d29fe666867c5
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: eb9fc40b9cf31744aa23a4eb17510f5b
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 5e859f0fa68334747a0ebc0f474909a2
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
