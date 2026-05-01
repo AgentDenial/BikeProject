@@ -140,8 +140,9 @@ public class BikeController : MonoBehaviour
 
     void Rotation()
     {
-
-            transform.Rotate(0, steerInput * moveInput * turningCurve.Evaluate(Mathf.Abs(currentVelocityOffset)) * steerStrength * Time.fixedDeltaTime, 0, Space.World);
+        //replaced moveInput with steerInput
+        float steerMovement = Mathf.Clamp(sphereRB.linearVelocity.magnitude, 0, 1);
+            transform.Rotate(0, steerInput * steerMovement * turningCurve.Evaluate(Mathf.Abs(currentVelocityOffset)) * steerStrength * Time.fixedDeltaTime, 0, Space.World);
             Handle.transform.localRotation = Quaternion.Slerp(Handle.transform.localRotation, Quaternion.Euler(Handle.transform.localRotation.eulerAngles.x, handleRotVal * steerInput, Handle.transform.localRotation.eulerAngles.z), handleRotSpeed);
 
     }
@@ -226,7 +227,25 @@ public class BikeController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("OutOfBounds"))
+        //if (other.gameObject.layer == LayerMask.NameToLayer("OutOfBounds"))
+        //if (other.gameObject.CompareTag("OutOfBounds"))
+        Debug.Log("test");
+        if (other.gameObject.name == "Plane")
+        {
+            Debug.Log("A");
+        }
+
+        if (other.gameObject.CompareTag("OutOfBounds"))
+        {
+            Debug.Log("B");
+        }
+
+        if (1 << other.gameObject.layer == 1 << LayerMask.NameToLayer("OutOfBounds"))
+        {
+            Debug.Log("C");
+        }
+
+        if ((LayerMask.NameToLayer("OutOfBounds") & 1 << other.gameObject.layer) == 1 << other.gameObject.layer)
         {
             Debug.Log("Fell out of bounds");
             menuManager.GameOver();

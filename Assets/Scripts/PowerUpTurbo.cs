@@ -6,26 +6,23 @@ public class PowerUpTurbo : MonoBehaviour
     //public float duration = 3f;
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("A");
         BikeController bike = other.GetComponentInParent<BikeController>();
+        //BikeController bike = other.gameObject.GetComponentInParent<BikeController>();
 
         GameObject mainBike = GameObject.Find("PlayerBike_GRP");
 
         if (mainBike != null)
         {
             bike = mainBike.GetComponent<BikeController>();
+            Debug.Log("B");
         }
 
         if (bike != null)
         {
-            EndgameController endGameController = Object.FindFirstObjectByType<EndgameController>();
-
-            if (endGameController != null)
-            {
-                endGameController.AddPowerUp(); // Le sumamos 1 al contador global
-            }
-
             bike.ApplyTurbo(speedBoost);
-            Destroy(gameObject);
+            Debug.Log("C");
+            Destroy(gameObject); 
         }
     }
 }
